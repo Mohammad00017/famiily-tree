@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nabiyyon ka Shajra</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #f5a623; --gold-d: #d4881a;
+  --green: #27ae60; --green-l: #eafaf1;
+  --blue: #2980b9; --blue-l: #eaf4fd;
+  --purple: #8e44ad; --purple-l: #f5eeff;
+  --orange: #e67e22; --orange-l: #fef5ec;
+  --teal: #16a085; --teal-l: #e8f8f5;
+  --red: #e74c3c;
+  --cream: #fffdf5;
+  --text: #2c3e50;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#f0e6d3; font-family:'Nunito',sans-serif; color:var(--text); }
+
+.poster {
+  width:1360px; margin:0 auto;
+  background:var(--cream);
+  border:6px solid var(--gold);
+  border-radius:16px; overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,0.18);
+}
+
+/* HEADER */
+.header {
+  background:linear-gradient(135deg,#1a5276 0%,#2980b9 50%,#1a5276 100%);
+  padding:22px 30px 16px; text-align:center;
+  border-bottom:5px solid var(--gold);
+}
+.bismillah { font-family:'Scheherazade New',serif; font-size:28px; color:#f5d67a; margin-bottom:6px; }
+.main-title { font-family:'Fredoka One',cursive; font-size:40px; color:#fff; letter-spacing:2px; text-shadow:2px 3px 0 rgba(0,0,0,0.3); }
+.sub-title { font-size:15px; color:#f5d67a; margin-top:4px; font-weight:700; }
+.star-row { font-size:20px; color:var(--gold); margin-top:6px; letter-spacing:8px; }
+
+/* BODY LAYOUT */
+.body-layout { display:grid; grid-template-columns:175px 1fr 185px; }
+
+/* SIDE PANELS */
+.left-panel { background:#fff8ee; border-right:3px solid #f5d67a; padding:12px 8px; }
+.right-panel { background:#f0fff8; border-left:3px solid #f5d67a; padding:12px 8px; }
+.panel-heading {
+  font-family:'Fredoka One',cursive; font-size:12px;
+  background:var(--gold); color:#fff; text-align:center;
+  padding:5px 4px; border-radius:8px; margin-bottom:8px;
+}
+.surah-item { display:flex; gap:4px; font-size:9px; line-height:1.55; align-items:baseline; }
+.s-num { font-weight:800; min-width:20px; font-size:8.5px; }
+.s-name { color:#2c3e50; font-weight:600; }
+.makki { color:#27ae60; }
+.madani { color:#e74c3c; }
+.asma-item { margin-bottom:3px; padding-bottom:3px; border-bottom:1px dashed #b8e0c8; }
+.asma-ar { font-family:'Scheherazade New',serif; font-size:13px; color:#16a085; direction:rtl; line-height:1.1; }
+.asma-en { font-size:8px; color:#27ae60; font-weight:700; }
+.asma-mean { font-size:7.5px; color:#7f8c8d; }
+
+/* TREE */
+.tree-area { padding:20px 10px; background:linear-gradient(180deg,#fdfcf8,#f8fffe); }
+
+/* ── NABI CARD ── */
+.nc {
+  border-radius:14px; padding:8px 12px;
+  text-align:center; position:relative;
+  box-shadow:0 3px 10px rgba(0,0,0,0.12);
+  border:3px solid; display:inline-block;
+}
+.nc.gold   { background:#fff8e1; border-color:var(--gold); min-width:220px; }
+.nc.blue   { background:var(--blue-l); border-color:var(--blue); min-width:190px; }
+.nc.green  { background:var(--green-l); border-color:var(--green); min-width:200px; }
+.nc.purple { background:var(--purple-l); border-color:var(--purple); min-width:185px; }
+.nc.teal   { background:var(--teal-l); border-color:var(--teal); min-width:165px; }
+.nc.orange { background:var(--orange-l); border-color:var(--orange); min-width:165px; }
+.nc.final  { background:#fff3cd; border-color:var(--gold-d); border-width:4px; min-width:210px; box-shadow:0 4px 20px rgba(245,166,35,0.35); }
+
+.badge {
+  position:absolute; top:-12px; left:50%; transform:translateX(-50%);
+  background:var(--gold); color:#fff;
+  font-family:'Fredoka One',cursive; font-size:10px;
+  padding:2px 12px; border-radius:20px;
+  border:2px solid #fff; box-shadow:0 2px 5px rgba(0,0,0,0.15);
+  white-space:nowrap;
+}
+.badge.blue   { background:var(--blue); }
+.badge.green  { background:var(--green); }
+.badge.purple { background:var(--purple); }
+.badge.teal   { background:var(--teal); }
+.badge.orange { background:var(--orange); }
+.badge.dark   { background:var(--gold-d); font-size:11px; }
+
+.nc-ar { font-family:'Scheherazade New',serif; font-size:20px; direction:rtl; line-height:1.1; margin-bottom:2px; }
+.nc-name { font-family:'Fredoka One',cursive; font-size:15px; line-height:1.2; }
+.nc-qaum { font-size:9px; color:#555; margin-top:3px; background:rgba(255,255,255,0.6); border-radius:6px; padding:2px 5px; }
+.nc-zikr { font-size:8px; color:#795548; margin-top:2px; font-weight:700; }
+.nc-khas { font-size:8px; color:#555; font-style:italic; margin-top:3px; border-top:1px dashed rgba(0,0,0,0.12); padding-top:3px; }
+
+/* ── ANCESTOR / SMALL NODE ── */
+.anc {
+  background:#f4f4f4; border:2px dashed #bbb;
+  border-radius:8px; padding:4px 10px;
+  font-size:9.5px; color:#555; font-weight:700;
+  display:inline-block; white-space:nowrap; text-align:center;
+}
+.anc.g { border-color:var(--green); color:var(--green); background:var(--green-l); }
+.anc.r { border-color:var(--red); color:var(--red); background:#fdecea; }
+.anc.b { border-color:var(--blue); color:var(--blue); background:var(--blue-l); }
+
+/* ── LAYOUT HELPERS ── */
+.col { display:flex; flex-direction:column; align-items:center; }
+.row { display:flex; justify-content:center; align-items:flex-start; gap:10px; }
+
+/* kids note */
+.note {
+  background:#fffde7; border:2px dashed var(--gold);
+  border-radius:10px; padding:4px 10px;
+  font-size:9px; color:#555; text-align:center;
+  display:inline-block;
+}
+
+/* section label pill */
+.pill {
+  font-family:'Fredoka One',cursive; font-size:11px;
+  display:inline-block; padding:3px 14px;
+  border-radius:20px; color:#fff; text-align:center;
+}
+.pill.blue { background:var(--blue); }
+.pill.green { background:var(--green); }
+.pill.purple { background:var(--purple); }
+.pill.orange { background:var(--orange); }
+.pill.teal { background:var(--teal); }
+
+/* FOOTER */
+.footer {
+  background:linear-gradient(135deg,#1a5276,#2980b9);
+  border-top:5px solid var(--gold);
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  color:#fff;
+}
+.fc { padding:12px 16px; border-right:1px solid rgba(255,255,255,0.2); }
+.fc:last-child { border-right:none; }
+.ft { font-family:'Fredoka One',cursive; font-size:13px; color:#f5d67a; margin-bottom:8px; text-align:center; }
+.dua { background:rgba(255,255,255,0.08); border-left:3px solid var(--gold); border-radius:4px; padding:5px 8px; margin-bottom:6px; }
+.dua-ar { font-family:'Scheherazade New',serif; font-size:14px; color:#f5d67a; direction:rtl; margin-bottom:2px; }
+.dua-t { font-size:8.5px; color:#cde; }
+.fact { background:rgba(255,255,255,0.08); border-radius:8px; padding:5px 8px; margin-bottom:5px; }
+.fq { font-size:9px; color:#f5d67a; font-weight:800; }
+.fa { font-size:8.5px; color:#cde; margin-top:1px; }
+.brand { background:#1a3a4f; text-align:center; padding:7px; font-size:10px; color:#f5d67a; letter-spacing:2px; font-family:'Fredoka One',cursive; }
+
+/* ── SVG CONNECTORS ── */
+svg.tree-svg { display:block; overflow:visible; }
+</style>
+</head>
+<body>
+<div class="poster">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+  <div class="main-title">🌳 Nabiyyon ka Shajra 🌳</div>
+  <div class="sub-title">Islamic Prophets Family Tree — Hazrat Adam (AS) se Hazrat Muhammad ﷺ tak</div>
+  <div class="star-row">★ ☪ ★ ☪ ★ ☪ ★</div>
+</div>
+
+<!-- BODY -->
+<div class="body-layout">
+
+  <!-- LEFT -->
+  <div class="left-panel">
+    <div class="panel-heading">📖 114 Surahs Ki List</div>
+    <div style="font-size:8px;margin-bottom:5px;text-align:center;"><span class="makki">● Makki</span> &nbsp; <span class="madani">● Madani</span></div>
+    <div id="surahList"></div>
+  </div>
+
+  <!-- TREE CENTER -->
+  <div class="tree-area">
+  <div class="col">
+
+    <!-- ═══════════════════════════════ -->
+    <!--            ADAM                -->
+    <!-- ═══════════════════════════════ -->
+    <div class="nc gold" id="adam">
+      <div class="badge">① Pehle Nabi 🌟</div>
+      <div class="nc-ar" style="color:#b8860b;">آدَم عليه السلام</div>
+      <div class="nc-name" style="color:#d4881a;">Hazrat Adam (AS)</div>
+      <div class="nc-qaum">🌍 Poori Zameen par bheje gaye</div>
+      <div class="nc-zikr">📖 Quran mein 25 baar</div>
+      <div class="nc-khas">✨ Insaanon ke sabse Pehle Baap — Inhi se poori insaaniyat shuru hui!</div>
+    </div>
+
+    <!-- Adam ke 3 bete — SVG se connected -->
+    <svg class="tree-svg" style="width:500px;height:60px;" viewBox="0 0 500 60">
+      <line x1="250" y1="0" x2="250" y2="25" stroke="#f5a623" stroke-width="2.5"/>
+      <line x1="80"  y1="25" x2="420" y2="25" stroke="#f5a623" stroke-width="2.5"/>
+      <line x1="80"  y1="25" x2="80"  y2="60" stroke="#bbb" stroke-width="2" stroke-dasharray="4,3"/>
+      <line x1="250" y1="25" x2="250" y2="60" stroke="#bbb" stroke-width="2" stroke-dasharray="4,3"/>
+      <line x1="420" y1="25" x2="420" y2="60" stroke="#27ae60" stroke-width="2.5"/>
+    </svg>
+    <div class="row" style="gap:30px;align-items:flex-start;">
+      <div class="col" style="align-items:center;">
+        <div class="anc">Qabil<br><span style="font-size:8px;color:#888;">(Beta 1 — Koi Nabi nahi aaya)</span></div>
+      </div>
+      <div class="col" style="align-items:center;">
+        <div class="anc">Habil<br><span style="font-size:8px;color:#888;">(Beta 2 — Koi Nabi nahi aaya)</span></div>
+      </div>
+      <div class="col" style="align-items:center;">
+        <div class="anc g">Shayth ✅<br><span style="font-size:8px;">(Beta 3 — Is bete ki nasl mein<br>aage Nabi aate rahe!)</span></div>
+      </div>
+    </div>
+
+    <!-- Shayth se chain to Idris -->
+    <svg class="tree-svg" style="width:300px;height:20px;" viewBox="0 0 300 20">
+      <line x1="150" y1="0" x2="150" y2="20" stroke="#27ae60" stroke-width="2.5"/>
+    </svg>
+    <div class="note">🔗 Shayth ke bete → pote → parpote — yehi silsila chala:</div>
+    <svg class="tree-svg" style="width:500px;height:12px;" viewBox="0 0 500 12">
+      <line x1="250" y1="0" x2="250" y2="12" stroke="#27ae60" stroke-width="2"/>
+    </svg>
+    <div class="row" style="gap:4px;align-items:center;">
+      <div class="anc" style="font-size:9px;">Anush</div>
+      <span style="color:#aaa;font-size:14px;">→</span>
+      <div class="anc" style="font-size:9px;">Qinan</div>
+      <span style="color:#aaa;font-size:14px;">→</span>
+      <div class="anc" style="font-size:9px;">Mahlail</div>
+      <span style="color:#aaa;font-size:14px;">→</span>
+      <div class="anc" style="font-size:9px;">Al-Yard</div>
+      <span style="color:#aaa;font-size:14px;">→</span>
+      <div class="anc" style="font-size:9px; border-color:#2980b9;color:#2980b9;">Idris (AS) ke Walid</div>
+    </svg>
+
+    <!-- Adam ──► IDRIS -->
+    <svg class="tree-svg" style="width:300px;height:20px;" viewBox="0 0 300 20">
+      <line x1="150" y1="0" x2="150" y2="20" stroke="#2980b9" stroke-width="2.5"/>
+    </svg>
+
+    <!-- ═══════════════════════════════ -->
+    <!--            IDRIS               -->
+    <!-- ═══════════════════════════════ -->
+    <div class="nc blue">
+      <div class="badge blue">② Doosre Nabi</div>
+      <div class="nc-ar" style="color:#2980b9;">إِدْرِيس عليه السلام</div>
+      <div class="nc-name" style="color:#2980b9;">Hazrat Idris (AS)</div>
+      <div class="nc-qaum">🏛️ Babul (Iraq) mein bheje gaye</div>
+      <div class="nc-zikr">📖 Quran mein 2 baar</div>
+      <div class="nc-khas">✨ Pehle likhne waale Nabi!</div>
+    </div>
+
+    <!-- Idris se chain to Nuh -->
+    <svg class="tree-svg" style="width:300px;height:12px;" viewBox="0 0 300 12">
+      <line x1="150" y1="0" x2="150" y2="12" stroke="#2980b9" stroke-width="2.5"/>
+    </svg>
+    <div class="note">🔗 Idris ke bete → pote — yehi silsila chala:</div>
+    <svg class="tree-svg" style="width:300px;height:12px;" viewBox="0 0 300 12">
+      <line x1="150" y1="0" x2="150" y2="12" stroke="#2980b9" stroke-width="2"/>
+    </svg>
+    <div class="row" style="gap:4px;align-items:center;">
+      <div class="anc" style="font-size:9px;">Lamik (Beta)</div>
+      <span style="color:#aaa;font-size:14px;">→</span>
+      <div class="anc" style="font-size:9px;">Mathuselah (Pota)</div>
+      <span style="color:#aaa;font-size:14px;">→</span>
+      <div class="anc" style="font-size:9px;border-color:#27ae60;color:#27ae60;">Nuh (AS) ke Walid</div>
+    </svg>
+    <svg class="tree-svg" style="width:300px;height:20px;" viewBox="0 0 300 20">
+      <line x1="150" y1="0" x2="150" y2="20" stroke="#27ae60" stroke-width="2.5"/>
+    </svg>
+
+    <!-- ═══════════════════════════════ -->
+    <!--             NUH                -->
+    <!-- ═══════════════════════════════ -->
+    <div class="nc green" style="min-width:220px;">
+      <div class="badge green">③ Teesre Nabi 🚢</div>
+      <div class="nc-ar" style="color:#27ae60;">نُوح عليه السلام</div>
+      <div class="nc-name" style="color:#27ae60;">Hazrat Nuh (AS)</div>
+      <div class="nc-qaum">🌊 Poori Zameen par bheje gaye</div>
+      <div class="nc-zikr">📖 Quran mein 43 baar</div>
+      <div class="nc-khas">✨ 950 saal Tableegh ki · Kashti banayi · Bada Toofan aaya!</div>
+    </div>
+
+    <!-- Nuh ke 4 bete — properly connected -->
+    <svg class="tree-svg" style="width:560px;height:50px;" viewBox="0 0 560 50">
+      <line x1="280" y1="0" x2="280" y2="22" stroke="#27ae60" stroke-width="2.5"/>
+      <line x1="70" y1="22" x2="490" y2="22" stroke="#27ae60" stroke-width="2.5"/>
+      <line x1="70"  y1="22" x2="70"  y2="50" stroke="#bbb" stroke-width="2" stroke-dasharray="4,3"/>
+      <line x1="210" y1="22" x2="210" y2="50" stroke="#bbb" stroke-width="2" stroke-dasharray="4,3"/>
+      <line x1="350" y1="22" x2="350" y2="50" stroke="#bbb" stroke-width="2" stroke-dasharray="4,3"/>
+      <line x1="490" y1="22" x2="490" y2="50" stroke="#e74c3c" stroke-width="2.5"/>
+      <text x="180" y="18" font-size="9" fill="#27ae60" font-family="Nunito">Nuh (AS) ke 4 Bete:</text>
+    </svg>
+    <div class="row" style="gap:8px;align-items:flex-start;">
+      <div class="col" style="align-items:center;">
+        <div class="anc g">Sam ✅<br><span style="font-size:8px;">(Is bete ki nasl mein<br>aage Nabi aate rahe)</span></div>
+      </div>
+      <div class="col" style="align-items:center;">
+        <div class="anc">Ham<br><span style="font-size:8px;color:#888;">(Koi Nabi nahi aaya)</span></div>
+      </div>
+      <div class="col" style="align-items:center;">
+        <div class="anc">Yafith<br><span style="font-size:8px;color:#888;">(Koi Nabi nahi aaya)</span></div>
+      </div>
+      <div class="col" style="align-items:center;">
+        <div class="anc r">Yam ❌<br><span style="font-size:8px;">(Kaafir tha — Toofan<br>mein dub gaya!)</span></div>
+      </div>
+    </div>
+
+    <!-- Sam se aage chain -->
+    <svg class="tree-svg" style="width:300px;height:22px;" viewBox="0 0 300 22">
+      <line x1="150" y1="0" x2="150" y2="22" stroke="#27ae60" stroke-width="2.5"/>
+    </svg>
+    <div class="note">🔗 Sam ke bete → pote — yehi silsila chala:</div>
+    <svg class="tree-svg" style="width:300px;height:12px;" viewBox="0 0 300 12">
+      <line x1="150" y1="0" x2="150" y2="12" stroke="#27ae60" stroke-width="2"/>
+    </svg>
+    <div class="row" style="gap:4px;align-items:center;">
+      <div class="anc" style="font-size:9px;">Artakhshad</div>
+      <span style="color:#aaa;font-size:14px;">→</span>
+      <div class="anc" style="font-size:9px;">Shalikh</div>
+      <span style="color:#aaa;font-size:14px;">→</span>
+      <div class="anc" style="font-size:9px;">Falikh</div>
+      <span style="color:#aaa;font-size:14px;">→</span>
+      <div class="anc" style="font-size:9px;">Nahur</div>
+      <span style="color:#aaa;font-size:14px;">→</span>
+      <div class="anc" style="font-size:9px;border-color:#e67e22;color:#e67e22;">Azar (Ibrahim ke Walid)</div>
+    </svg>
+
+    <!-- HUD aur SALEH — side note while chain continues -->
+    <svg class="tree-svg" style="width:300px;height:14px;" viewBox="0 0 300 14">
+      <line x1="150" y1="0" x2="150" y2="14" stroke="#27ae60" stroke-width="2"/>
+    </svg>
+    <div class="note" style="max-width:500px;">⚡ Is dauran — 2 aur Nabi alag qaumon mein aaye (Ibrahim (AS) ke pehle):</div>
+    <svg class="tree-svg" style="width:300px;height:8px;" viewBox="0 0 300 8">
+      <line x1="150" y1="0" x2="150" y2="8" stroke="#27ae60" stroke-width="1.5"/>
+    </svg>
+    <div class="row" style="gap:20px;margin-bottom:4px;">
+      <div class="nc blue" style="min-width:160px;">
+        <div class="badge blue">④ Nabi 🏜️</div>
+        <div class="nc-ar" style="color:#2980b9;font-size:16px;">هُود عليه السلام</div>
+        <div class="nc-name" style="color:#2980b9;font-size:13px;">Hazrat Hud (AS)</div>
+        <div class="nc-qaum" style="font-size:8px;">🏜️ Qaum-e-Aad (Arab mein)</div>
+        <div class="nc-zikr" style="font-size:7.5px;">📖 Quran mein 7 baar</div>
+        <div class="nc-khas" style="font-size:7.5px;">✨ Aad qaum ko samjhaya</div>
+      </div>
+      <div class="nc blue" style="min-width:160px;">
+        <div class="badge blue">⑤ Nabi 🐪</div>
+        <div class="nc-ar" style="color:#2980b9;font-size:16px;">صَالِح عليه السلام</div>
+        <div class="nc-name" style="color:#2980b9;font-size:13px;">Hazrat Saleh (AS)</div>
+        <div class="nc-qaum" style="font-size:8px;">🐪 Qaum-e-Thamud mein</div>
+        <div class="nc-zikr" style="font-size:7.5px;">📖 Quran mein 9 baar</div>
+        <div class="nc-khas" style="font-size:7.5px;">✨ Jaadui unta — Mujiza!</div>
+      </div>
+    </div>
+
+    <!-- → IBRAHIM -->
+    <svg class="tree-svg" style="width:300px;height:20px;" viewBox="0 0 300 20">
+      <line x1="150" y1="0" x2="150" y2="20" stroke="#f5a623" stroke-width="3"/>
+    </svg>
+
+    <!-- ═══════════════════════════════ -->
+    <!--           IBRAHIM              -->
+    <!-- ═══════════════════════════════ -->
+    <div class="nc gold" style="min-width:260px;border-width:4px;">
+      <div class="badge dark">⑥ Nabi — SABSE BADA SPLITTING POINT ⭐</div>
+      <div class="nc-ar" style="color:#b8860b;font-size:24px;">إِبْرَاهِيم عليه السلام</div>
+      <div class="nc-name" style="color:#d4881a;font-size:18px;">Hazrat Ibrahim (AS)</div>
+      <div class="nc-qaum">🏙️ Babul (Iraq) mein bheje gaye</div>
+      <div class="nc-zikr">📖 Quran mein 69 baar — Sabse Zyada!</div>
+      <div class="nc-khas">✨ Khalilullah (Allah ke Dost) · Kaaba banaya · Aag mein nahi jale!</div>
+    </div>
+
+    <!-- BIG SPLIT — Ibrahim ke 2 bete + 1 bhatija -->
+    <svg class="tree-svg" style="width:780px;height:55px;" viewBox="0 0 780 55">
+      <line x1="390" y1="0"  x2="390" y2="25" stroke="#f5a623" stroke-width="3"/>
+      <line x1="110" y1="25" x2="670" y2="25" stroke="#f5a623" stroke-width="3"/>
+      <!-- left: Ismail -->
+      <line x1="110" y1="25" x2="110" y2="55" stroke="#27ae60" stroke-width="3"/>
+      <!-- middle: Lut (dashed — bhatija, not son) -->
+      <line x1="390" y1="25" x2="390" y2="55" stroke="#e67e22" stroke-width="2" stroke-dasharray="5,4"/>
+      <!-- right: Ishaq -->
+      <line x1="670" y1="25" x2="670" y2="55" stroke="#8e44ad" stroke-width="3"/>
+      <!-- Labels -->
+      <text x="20"  y="50" font-size="10" fill="#27ae60" font-weight="bold" font-family="Nunito">Beta 1: Ismail ↓</text>
+      <text x="280" y="50" font-size="9"  fill="#e67e22" font-family="Nunito">Bhatija: Lut ↓</text>
+      <text x="560" y="50" font-size="10" fill="#8e44ad" font-weight="bold" font-family="Nunito">Beta 2: Ishaq ↓</text>
+    </svg>
+
+    <!-- 3 BRANCHES: LEFT | MIDDLE | RIGHT -->
+    <div style="display:flex;justify-content:center;align-items:flex-start;gap:0;width:780px;">
+
+      <!-- ══ LEFT BRANCH: ISMAIL → MUHAMMAD ﷺ ══ -->
+      <div class="col" style="width:255px;">
+        <div class="pill green" style="margin-bottom:6px;">🌙 Arab Shaakh</div>
+
+        <div class="nc green" style="width:220px;">
+          <div class="badge green">⑦ Nabi</div>
+          <div class="nc-ar" style="color:#27ae60;">إِسْمَاعِيل عليه السلام</div>
+          <div class="nc-name" style="color:#27ae60;">Hazrat Ismail (AS)</div>
+          <div class="nc-qaum" style="font-size:8.5px;">🕋 Mecca (Arab) mein bheje gaye</div>
+          <div class="nc-zikr" style="font-size:8px;">📖 Quran mein 12 baar</div>
+          <div class="nc-khas" style="font-size:8px;">✨ Hajra ke bete · Ibrahim ke saath Kaaba banaya</div>
+        </div>
+   <svg class="tree-svg" style="width:220px;height:18px;" viewBox="0 0 220 18">
+          <line x1="110" y1="0" x2="110" y2="18" stroke="#27ae60" stroke-width="2.5"/>
+        </svg>
+        <div class="note" style="font-size:8.5px;width:220px;">🔗 Ismail ke bete → pote → Quraysh Qabila bana:</div>
+        <svg class="tree-svg" style="width:220px;height:10px;" viewBox="0 0 220 10">
+          <line x1="110" y1="0" x2="110" y2="10" stroke="#27ae60" stroke-width="2"/>
+        </svg>
+
+        <div style="background:#eafaf1;border:2px dashed #27ae60;border-radius:10px;padding:8px 10px;width:220px;text-align:center;">
+          <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#27ae60;margin-bottom:4px;">🔗 Quraysh Qabila ka Silsila:</div>
+          <div style="font-size:8px;color:#555;line-height:2;">
+            Ismail → Adnan → Ma'ad → Nizar<br>
+            → Mudhar → Ilyas → Mudrikah<br>
+            → Khuzaymah → Kinanah → Fihr<br>
+            → Ghalib → Lu'ay → Ka'b → Murrah<br>
+            → Kilab → Qusai → Abd Manaf<br>
+            → Hashim → Abd al-Muttalib<br>
+            → <strong>Abdullah (Walid) + Aminah (Walida)</strong>
+          </div>
+        </div>
+
+        <svg class="tree-svg" style="width:220px;height:18px;" viewBox="0 0 220 18">
+          <line x1="110" y1="0" x2="110" y2="18" stroke="#d4881a" stroke-width="3"/>
+        </svg>
+
+        <!-- MUHAMMAD ﷺ -->
+        <div class="nc final" style="width:220px;padding:10px 12px;">
+          <div class="badge dark" style="font-size:11px;padding:3px 14px;">㉕ AAKHRI NABI ﷺ 🌟</div>
+          <div class="nc-ar" style="color:#b8860b;font-size:26px;margin-top:4px;">مُحَمَّد ﷺ</div>
+          <div class="nc-name" style="color:#d4881a;font-size:17px;">Hazrat Muhammad ﷺ</div>
+          <div class="nc-qaum">🌍 Poori Duniya ke liye!</div>
+          <div class="nc-zikr">📖 Quran mein 4 baar naam se</div>
+          <div class="nc-khas">✨ Rahmatan lil Alameen · Khatam-un-Nabiyyin · Quran laaye!</div>
+        </div>
+      </div>
+
+      <!-- ══ MIDDLE BRANCH: LUT ══ -->
+      <div class="col" style="width:200px;padding-top:28px;">
+        <div class="note" style="font-size:8px;margin-bottom:6px;max-width:175px;">
+          ℹ️ Hazrat Lut (AS) Ibrahim ke <u>bhatije</u> the — seedhe bete <strong>nahi</strong> the.<br>
+          <span style="font-size:7.5px;color:#888;">Isliye unki taraf line <em>dotted</em> hai.</span>
+        </div>
+        <div class="nc orange" style="width:175px;">
+          <div class="badge orange">Nabi (Bhatija)</div>
+          <div class="nc-ar" style="color:#e67e22;font-size:16px;">لُوط عليه السلام</div>
+          <div class="nc-name" style="color:#e67e22;font-size:13px;">Hazrat Lut (AS)</div>
+          <div class="nc-qaum" style="font-size:8px;">🏙️ Sodom & Gomorrah mein</div>
+          <div class="nc-zikr" style="font-size:8px;">📖 Quran mein 27 baar</div>
+          <div class="nc-khas" style="font-size:7.5px;">✨ Buri qaum ko samjhaya · Sheher tabah hua!</div>
+        </div>
+      </div>
+
+      <!-- ══ RIGHT BRANCH: ISHAQ → BANI ISRAEL ══ -->
+      <div class="col" style="width:325px;">
+        <div class="pill purple" style="margin-bottom:6px;">💜 Bani Israel Shaakh</div>
+
+        <div class="nc purple" style="width:290px;">
+          <div class="badge purple">⑧ Nabi</div>
+          <div class="nc-ar" style="color:#8e44ad;">إِسْحَاق عليه السلام</div>
+          <div class="nc-name" style="color:#8e44ad;">Hazrat Ishaq (AS)</div>
+          <div class="nc-qaum" style="font-size:8.5px;">🏕️ Canaan (Palestine) mein bheje gaye</div>
+          <div class="nc-zikr" style="font-size:8px;">📖 Quran mein 17 baar</div>
+          <div class="nc-khas" style="font-size:8px;">✨ Sara ke bete · Bani Israel ke pardada</div>
+        </div>
+
+        <svg class="tree-svg" style="width:290px;height:18px;" viewBox="0 0 290 18">
+          <line x1="145" y1="0" x2="145" y2="18" stroke="#8e44ad" stroke-width="2.5"/>
+        </svg>
+
+        <div class="nc purple" style="width:290px;">
+          <div class="badge purple">⑨ Nabi</div>
+          <div class="nc-ar" style="color:#8e44ad;">يَعْقُوب عليه السلام</div>
+          <div class="nc-name" style="color:#8e44ad;">Hazrat Yaqub (AS)</div>
+          <div class="nc-qaum" style="font-size:8.5px;">🏕️ Canaan — "Israel" bhi kehte the inhe</div>
+          <div class="nc-zikr" style="font-size:8px;">📖 Quran mein 16 baar</div>
+          <div class="nc-khas" style="font-size:8px;">✨ Bani Israel ke Baap · 12 bete the!</div>
+        </div>
+
+        <!-- Yaqub ke 12 bete — 2 clearly marked as Nabi -->
+        <svg class="tree-svg" style="width:290px;height:30px;" viewBox="0 0 290 30">
+          <line x1="145" y1="0" x2="145" y2="14" stroke="#8e44ad" stroke-width="2.5"/>
+          <!-- Fan lines to 4 columns -->
+          <line x1="40"  y1="14" x2="250" y2="14" stroke="#8e44ad" stroke-width="2"/>
+          <line x1="40"  y1="14" x2="40"  y2="30" stroke="#8e44ad" stroke-width="2"/>
+          <line x1="120" y1="14" x2="120" y2="30" stroke="#bbb" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="180" y1="14" x2="180" y2="30" stroke="#bbb" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="250" y1="14" x2="250" y2="30" stroke="#bbb" stroke-width="1.5" stroke-dasharray="3,3"/>
+        </svg>
+        <div class="row" style="gap:5px;width:290px;justify-content:space-around;">
+          <div class="anc" style="border-color:#8e44ad;color:#8e44ad;font-size:8.5px;text-align:center;">
+            Yusuf ✅<br><span style="font-size:7px;">(Nabi bane —<br>Beta #1)</span>
+          </div>
+          <div class="anc" style="font-size:8px;text-align:center;">Banyamin<br><span style="font-size:7px;">(Beta)</span></div>
+          <div class="anc" style="font-size:8px;text-align:center;">Yahuda<br><span style="font-size:7px;">(Beta)</span></div>
+          <div class="anc" style="font-size:8px;text-align:center;">Lawi +<br>8 aur bete</div>
+        </div>
+
+        <!-- YUSUF -->
+        <svg class="tree-svg" style="width:290px;height:22px;" viewBox="0 0 290 22">
+          <line x1="37" y1="0" x2="37" y2="22" stroke="#8e44ad" stroke-width="2.5"/>
+        </svg>
+        <div style="display:flex;justify-content:flex-start;width:290px;">
+          <div class="nc purple" style="min-width:unset;width:150px;">
+            <div class="badge purple" style="font-size:9px;">⑩ Nabi</div>
+            <div class="nc-ar" style="color:#8e44ad;font-size:15px;">يُوسُف</div>
+            <div class="nc-name" style="color:#8e44ad;font-size:12px;">Hazrat Yusuf (AS)</div>
+            <div class="nc-qaum" style="font-size:7.5px;">Egypt mein bheje gaye</div>
+            <div class="nc-zikr" style="font-size:7.5px;">📖 27 baar Quran mein</div>
+            <div class="nc-khas" style="font-size:7.5px;">✨ Khwab ki Tabeer!</div>
+          </div>
+        </div>
+
+        <!-- BANI ISRAEL aage -->
+        <svg class="tree-svg" style="width:290px;height:14px;" viewBox="0 0 290 14">
+          <line x1="145" y1="0" x2="145" y2="14" stroke="#8e44ad" stroke-width="2.5"/>
+        </svg>
+        <div class="pill purple" style="font-size:9.5px;">✡️ Yaqub ki nasl — BANI ISRAEL — aage Nabi aaye:</div>
+        <svg class="tree-svg" style="width:290px;height:14px;" viewBox="0 0 290 14">
+          <line x1="145" y1="0" x2="145" y2="14" stroke="#16a085" stroke-width="2.5"/>
+        </svg>
+
+        <!-- MUSA + HARUN -->
+        <div class="row" style="gap:5px;width:290px;">
+          <div class="nc teal" style="min-width:unset;width:138px;">
+            <div class="badge teal" style="font-size:9px;">Nabi 🪄</div>
+            <div class="nc-ar" style="color:#16a085;font-size:15px;">مُوسَى</div>
+            <div class="nc-name" style="color:#16a085;font-size:12px;">Hazrat Musa (AS)</div>
+            <div class="nc-qaum" style="font-size:7.5px;">Egypt · 136 baar!</div>
+            <div class="nc-khas" style="font-size:7px;">✨ Kalimullah · Taurat · Samandar chheera!</div>
+          </div>
+          <div class="nc teal" style="min-width:unset;width:138px;">
+            <div class="badge teal" style="font-size:9px;">Nabi — Bhai</div>
+            <div class="nc-ar" style="color:#16a085;font-size:15px;">هَارُون</div>
+            <div class="nc-name" style="color:#16a085;font-size:12px;">Hazrat Harun (AS)</div>
+            <div class="nc-qaum" style="font-size:7.5px;">Egypt · 20 baar</div>
+            <div class="nc-khas" style="font-size:7px;">✨ Musa ke Saathi — Bhai!</div>
+          </div>
+        </div>
+
+        <svg class="tree-svg" style="width:290px;height:14px;" viewBox="0 0 290 14">
+          <line x1="145" y1="0" x2="145" y2="14" stroke="#16a085" stroke-width="2"/>
+        </svg>
+
+        <!-- Grid of other BI prophets -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;width:290px;">
+          <div class="nc teal" style="min-width:unset;max-width:unset;padding:4px 6px;">
+            <div class="badge teal" style="font-size:8px;">Nabi</div>
+            <div class="nc-ar" style="color:#16a085;font-size:13px;">دَاوُد</div>
+            <div class="nc-name" style="font-size:11px;color:#16a085;">Hazrat Dawud (AS)</div>
+            <div class="nc-qaum" style="font-size:7px;">Jerusalem · 16 baar</div>
+            <div class="nc-khas" style="font-size:6.5px;">Zabur · Badshah · Zireh!</div>
+          </div>
+          <div class="nc teal" style="min-width:unset;max-width:unset;padding:4px 6px;">
+            <div class="badge teal" style="font-size:8px;">Nabi — Beta</div>
+            <div class="nc-ar" style="color:#16a085;font-size:13px;">سُلَيْمَان</div>
+            <div class="nc-name" style="font-size:11px;color:#16a085;">Hazrat Sulaiman (AS)</div>
+            <div class="nc-qaum" style="font-size:7px;">Jerusalem · 17 baar</div>
+            <div class="nc-khas" style="font-size:6.5px;">Jinnat · Parinde · Hawa pe safar!</div>
+          </div>
+          <div class="nc teal" style="min-width:unset;max-width:unset;padding:4px 6px;">
+            <div class="badge teal" style="font-size:8px;">Nabi</div>
+            <div class="nc-ar" style="color:#16a085;font-size:13px;">إِلْيَاس</div>
+            <div class="nc-name" style="font-size:11px;color:#16a085;">Hazrat Ilyas (AS)</div>
+            <div class="nc-qaum" style="font-size:7px;">Samaria · 2 baar</div>
+            <div class="nc-khas" style="font-size:6.5px;">Bani Israel mein aaye</div>
+          </div>
+          <div class="nc teal" style="min-width:unset;max-width:unset;padding:4px 6px;">
+            <div class="badge teal" style="font-size:8px;">Nabi</div>
+            <div class="nc-ar" style="color:#16a085;font-size:13px;">الْيَسَع</div>
+            <div class="nc-name" style="font-size:11px;color:#16a085;">Hazrat Al-Yasa (AS)</div>
+            <div class="nc-qaum" style="font-size:7px;">Samaria · 2 baar</div>
+            <div class="nc-khas" style="font-size:6.5px;">Ilyas ke Shagird!</div>
+          </div>
+          <div class="nc teal" style="min-width:unset;max-width:unset;padding:4px 6px;">
+            <div class="badge teal" style="font-size:8px;">Nabi</div>
+            <div class="nc-ar" style="color:#16a085;font-size:13px;">زَكَرِيَّا</div>
+            <div class="nc-name" style="font-size:11px;color:#16a085;">Hazrat Zakariya (AS)</div>
+            <div class="nc-qaum" style="font-size:7px;">Jerusalem · 7 baar</div>
+            <div class="nc-khas" style="font-size:6.5px;">Maryam ke Guardian!</div>
+          </div>
+          <div class="nc teal" style="min-width:unset;max-width:unset;padding:4px 6px;">
+            <div class="badge teal" style="font-size:8px;">Nabi — Beta</div>
+            <div class="nc-ar" style="color:#16a085;font-size:13px;">يَحْيَى</div>
+            <div class="nc-name" style="font-size:11px;color:#16a085;">Hazrat Yahya (AS)</div>
+            <div class="nc-qaum" style="font-size:7px;">Jerusalem · 5 baar</div>
+            <div class="nc-khas" style="font-size:6.5px;">Zakariya ke bete!</div>
+          </div>
+        </div>
+
+        <svg class="tree-svg" style="width:290px;height:14px;" viewBox="0 0 290 14">
+          <line x1="145" y1="0" x2="145" y2="14" stroke="#27ae60" stroke-width="2.5"/>
+        </svg>
+
+        <!-- ISA -->
+        <div class="nc green" style="width:290px;">
+          <div class="badge green" style="font-size:10px;">㉔ Nabi ✝️</div>
+          <div class="nc-ar" style="color:#27ae60;font-size:20px;">عِيسَى عليه السلام</div>
+          <div class="nc-name" style="color:#27ae60;font-size:14px;">Hazrat Isa (Jesus) (AS)</div>
+          <div class="nc-qaum" style="font-size:8.5px;">🕊️ Bani Israel mein — Maryam ke bete (Baap nahi the!)</div>
+          <div class="nc-zikr" style="font-size:8px;">📖 Quran mein 25 baar</div>
+          <div class="nc-khas" style="font-size:8px;">✨ Injeel laaye · Murdon ko zinda kiya · Aakhir mein wapas aayenge!</div>
+        </div>
+
+        <!-- Other era prophets -->
+        <svg class="tree-svg" style="width:290px;height:10px;" viewBox="0 0 290 10">
+          <line x1="145" y1="0" x2="145" y2="10" stroke="#e67e22" stroke-width="1.5" stroke-dasharray="4,3"/>
+        </svg>
+        <div class="pill orange" style="font-size:9px;">🌟 4 Nabi — Alag Ilaqon mein (Is hi daur mein):</div>
+        <svg class="tree-svg" style="width:290px;height:8px;" viewBox="0 0 290 8">
+          <line x1="145" y1="0" x2="145" y2="8" stroke="#e67e22" stroke-width="1.5"/>
+        </svg>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;width:290px;">
+          <div class="nc orange" style="min-width:unset;max-width:unset;padding:4px 6px;">
+            <div class="badge orange" style="font-size:8px;">Nabi 💪</div>
+            <div class="nc-ar" style="color:#e67e22;font-size:13px;">أَيُّوب</div>
+            <div class="nc-name" style="font-size:11px;color:#e67e22;">Hazrat Ayyub (AS)</div>
+            <div class="nc-qaum" style="font-size:7px;">Edom · 4 baar</div>
+            <div class="nc-khas" style="font-size:6.5px;">Sabr ki misaal!</div>
+          </div>
+          <div class="nc orange" style="min-width:unset;max-width:unset;padding:4px 6px;">
+            <div class="badge orange" style="font-size:8px;">Nabi ⚖️</div>
+            <div class="nc-ar" style="color:#e67e22;font-size:13px;">شُعَيْب</div>
+            <div class="nc-name" style="font-size:11px;color:#e67e22;">Hazrat Shuayb (AS)</div>
+            <div class="nc-qaum" style="font-size:7px;">Midian · 9 baar</div>
+            <div class="nc-khas" style="font-size:6.5px;">Imaandaari seekhaya!</div>
+          </div>
+          <div class="nc orange" style="min-width:unset;max-width:unset;padding:4px 6px;">
+            <div class="badge orange" style="font-size:8px;">Nabi 🐋</div>
+            <div class="nc-ar" style="color:#e67e22;font-size:13px;">يُونُس</div>
+            <div class="nc-name" style="font-size:11px;color:#e67e22;">Hazrat Yunus (AS)</div>
+            <div class="nc-qaum" style="font-size:7px;">Ninevah · 4 baar</div>
+            <div class="nc-khas" style="font-size:6.5px;">Machli ke pet mein!</div>
+          </div>
+          <div class="nc orange" style="min-width:unset;max-width:unset;padding:4px 6px;">
+            <div class="badge orange" style="font-size:8px;">Nabi</div>
+            <div class="nc-ar" style="color:#e67e22;font-size:13px;">ذُو الْكِفْل</div>
+            <div class="nc-name" style="font-size:11px;color:#e67e22;">Hazrat Dhul-Kifl (AS)</div>
+            <div class="nc-qaum" style="font-size:7px;">Babylon · 2 baar</div>
+            <div class="nc-khas" style="font-size:6.5px;">Sabr karne wale!</div>
+          </div>
+        </div>
+      </div><!-- end right branch -->
+
+    </div><!-- end 3 branches -->
+
+  </div><!-- end col -->
+  </div><!-- end tree-area -->
+
+  <!-- RIGHT: 99 Names -->
+  <div class="right-panel">
+    <div class="panel-heading">☪️ Allah Ke 99 Naam</div>
+    <div style="font-family:'Scheherazade New',serif;font-size:15px;color:#16a085;text-align:center;margin-bottom:6px;direction:rtl;">أَسْمَاءُ اللَّهِ الْحُسْنَى</div>
+    <div id="asmaList"></div>
+  </div>
+
+</div><!-- end body-layout -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="fc">
+    <div class="ft">🤲 Zaroori Duaayein</div>
+    <div class="dua"><div class="dua-ar">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً</div><div class="dua-t">Aye Rabb! Duniya aur Aakhirat mein acha de — Baqarah 2:201</div></div>
+    <div class="dua"><div class="dua-ar">رَبِّ زِدْنِي عِلْمًا</div><div class="dua-t">Aye Rabb! Mujhe ilm zyada de — Ta-Ha 20:114</div></div>
+    <div class="dua"><div class="dua-ar">إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</div><div class="dua-t">Hum Allah ki taraf se hain, Usi ki taraf lautna hai — Baqarah 2:156</div></div>
+  </div>
+  <div class="fc">
+    <div class="ft">📚 Zaroori Facts</div>
+    <div class="fact"><div class="fq">⭐ Lines ka matlab kya hai?</div><div class="fa">Solid line ———— = Seedha Beta / Beti<br>Dotted line - - - = Bhatija / Shagird / Alag rishta</div></div>
+    <div class="fact"><div class="fq">⭐ Sabse Zyada Mentioned?</div><div class="fa">Hazrat Musa (AS) — 136 baar Quran mein!</div></div>
+    <div class="fact"><div class="fq">⭐ Kul Anbiya kitne the?</div><div class="fa">Hadees: 1,24,000. Quran mein 25 ke naam hain.</div></div>
+    <div class="fact"><div class="fq">⭐ 4 Asmani Kitabein?</div><div class="fa">Taurat (Musa) · Zabur (Dawud) · Injeel (Isa) · Quran (Muhammad ﷺ)</div></div>
+  </div>
+  <div class="fc">
+    <div class="ft">🎨 Color Guide</div>
+    <div style="font-size:9px;">
+      <div class="fact"><div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;background:#fff8e1;border:2px solid #f5a623;border-radius:3px;flex-shrink:0;"></div><div class="fa">🟡 Sona — Sabse Khaas (Adam, Ibrahim, Muhammad ﷺ)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;background:#eafaf1;border:2px solid #27ae60;border-radius:3px;flex-shrink:0;"></div><div class="fa">🟢 Hara — Arab Nasl (Nuh, Ismail, Isa)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;background:#eaf4fd;border:2px solid #2980b9;border-radius:3px;flex-shrink:0;"></div><div class="fa">🔵 Neela — Pehle Zamane ke Nabi (Idris, Hud, Saleh)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;background:#f5eeff;border:2px solid #8e44ad;border-radius:3px;flex-shrink:0;"></div><div class="fa">🟣 Bunafsha — Bani Israel Nasl (Ishaq, Yaqub)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;background:#e8f8f5;border:2px solid #16a085;border-radius:3px;flex-shrink:0;"></div><div class="fa">🩵 Ferozi — Bani Israel ke Nabi (Musa, Dawud...)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:6px;"><div style="width:14px;height:14px;background:#fef5ec;border:2px solid #e67e22;border-radius:3px;flex-shrink:0;"></div><div class="fa">🟠 Narangi — Alag Ilaqon ke Nabi (Ayyub, Yunus...)</div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="brand">☪ ISLAMIC KNOWLEDGE SERIES — Tamam Nabiyyon par Darood o Salaam ☪</div>
+</div>
+
+<script>
+const surahs=[[1,"Al-Fatiha","M"],[2,"Al-Baqarah","MD"],[3,"Al-Imran","MD"],[4,"An-Nisa","MD"],[5,"Al-Maidah","MD"],[6,"Al-An'am","M"],[7,"Al-A'raf","M"],[8,"Al-Anfal","MD"],[9,"At-Tawbah","MD"],[10,"Yunus","M"],[11,"Hud","M"],[12,"Yusuf","M"],[13,"Ar-Ra'd","MD"],[14,"Ibrahim","M"],[15,"Al-Hijr","M"],[16,"An-Nahl","M"],[17,"Al-Isra","M"],[18,"Al-Kahf","M"],[19,"Maryam","M"],[20,"Ta-Ha","M"],[21,"Al-Anbiya","M"],[22,"Al-Hajj","MD"],[23,"Al-Mu'minun","M"],[24,"An-Nur","MD"],[25,"Al-Furqan","M"],[26,"Ash-Shu'ara","M"],[27,"An-Naml","M"],[28,"Al-Qasas","M"],[29,"Al-Ankabut","M"],[30,"Ar-Rum","M"],[31,"Luqman","M"],[32,"As-Sajda","M"],[33,"Al-Ahzab","MD"],[34,"Saba","M"],[35,"Fatir","M"],[36,"Ya Sin","M"],[37,"As-Saffat","M"],[38,"Sad","M"],[39,"Az-Zumar","M"],[40,"Ghafir","M"],[41,"Fussilat","M"],[42,"Ash-Shura","M"],[43,"Az-Zukhruf","M"],[44,"Ad-Dukhan","M"],[45,"Al-Jathiyah","M"],[46,"Al-Ahqaf","M"],[47,"Muhammad","MD"],[48,"Al-Fath","MD"],[49,"Al-Hujurat","MD"],[50,"Qaf","M"],[51,"Adh-Dhariyat","M"],[52,"At-Tur","M"],[53,"An-Najm","M"],[54,"Al-Qamar","M"],[55,"Ar-Rahman","MD"],[56,"Al-Waqi'a","M"],[57,"Al-Hadid","MD"],[58,"Al-Mujadila","MD"],[59,"Al-Hashr","MD"],[60,"Al-Mumtahanah","MD"],[61,"As-Saf","MD"],[62,"Al-Jumu'ah","MD"],[63,"Al-Munafiqun","MD"],[64,"At-Taghabun","MD"],[65,"At-Talaq","MD"],[66,"At-Tahrim","MD"],[67,"Al-Mulk","M"],[68,"Al-Qalam","M"],[69,"Al-Haqqah","M"],[70,"Al-Ma'arij","M"],[71,"Nuh","M"],[72,"Al-Jinn","M"],[73,"Al-Muzzammil","M"],[74,"Al-Muddaththir","M"],[75,"Al-Qiyamah","M"],[76,"Al-Insan","MD"],[77,"Al-Mursalat","M"],[78,"An-Naba","M"],[79,"An-Nazi'at","M"],[80,"Abasa","M"],[81,"At-Takwir","M"],[82,"Al-Infitar","M"],[83,"Al-Mutaffifin","M"],[84,"Al-Inshiqaq","M"],[85,"Al-Buruj","M"],[86,"At-Tariq","M"],[87,"Al-A'la","M"],[88,"Al-Ghashiyah","M"],[89,"Al-Fajr","M"],[90,"Al-Balad","M"],[91,"Ash-Shams","M"],[92,"Al-Layl","M"],[93,"Ad-Duha","M"],[94,"Ash-Sharh","M"],[95,"At-Tin","M"],[96,"Al-Alaq","M"],[97,"Al-Qadr","M"],[98,"Al-Bayyinah","MD"],[99,"Az-Zalzalah","MD"],[100,"Al-Adiyat","M"],[101,"Al-Qari'ah","M"],[102,"At-Takathur","M"],[103,"Al-Asr","M"],[104,"Al-Humazah","M"],[105,"Al-Fil","M"],[106,"Quraysh","M"],[107,"Al-Ma'un","M"],[108,"Al-Kawthar","M"],[109,"Al-Kafirun","M"],[110,"An-Nasr","MD"],[111,"Al-Masad","M"],[112,"Al-Ikhlas","M"],[113,"Al-Falaq","M"],[114,"An-Nas","M"]];
+const sl=document.getElementById('surahList');
+surahs.forEach(([n,name,t])=>{const d=document.createElement('div');d.className='surah-item';const c=t==='M'?'makki':'madani';d.innerHTML=`<span class="s-num ${c}">${n}</span><span class="s-name">${name}</span>`;sl.appendChild(d);});
+
+const asma=[["Allah","Allah","Sabse Bada Naam"],["Ar-Rahman","الرَّحْمَن","Bahut Meherbaan"],["Ar-Rahim","الرَّحِيم","Hamesha Rehm wala"],["Al-Malik","الْمَلِك","Sachcha Badshah"],["Al-Quddus","الْقُدُّوس","Bilkul Paak"],["As-Salam","السَّلَام","Salaamati dene wala"],["Al-Mu'min","الْمُؤْمِن","Amaan dene wala"],["Al-Muhaymin","الْمُهَيْمِن","Nigehbaan"],["Al-Aziz","الْعَزِيز","Zabardast"],["Al-Jabbar","الْجَبَّار","Taaqatwar"],["Al-Mutakabbir","الْمُتَكَبِّر","Sabse Bada"],["Al-Khaliq","الْخَالِق","Banane wala"],["Al-Bari","الْبَارِئ","Naye andaaz se banane wala"],["Al-Musawwir","الْمُصَوِّر","Surat dene wala"],["Al-Ghaffar","الْغَفَّار","Baar baar maaf karne wala"],["Al-Qahhar","الْقَهَّار","Sab par Ghalib"],["Al-Wahhab","الْوَهَّاب","Dene wala"],["Ar-Razzaq","الرَّزَّاق","Rizq dene wala"],["Al-Fattah","الْفَتَّاح","Darwaze kholne wala"],["Al-Alim","الْعَلِيم","Sab jaanne wala"],["Al-Qabid","الْقَابِض","Rokne wala"],["Al-Basit","الْبَاسِط","Failane wala"],["Al-Khafid","الْخَافِض","Neecha karne wala"],["Ar-Rafi","الرَّافِع","Unchha karne wala"],["Al-Mu'izz","الْمُعِزّ","Izzat dene wala"],["Al-Mudhill","الْمُذِلّ","Zaleel karne wala"],["As-Sami","السَّمِيع","Sab sunne wala"],["Al-Basir","الْبَصِير","Sab dekhne wala"],["Al-Hakam","الْحَكَم","Faisla karne wala"],["Al-Adl","الْعَدْل","Insaaf wala"],["Al-Latif","اللَّطِيف","Meharbaan"],["Al-Khabir","الْخَبِير","Andar ki khabar wala"],["Al-Halim","الْحَلِيم","Burdbaar"],["Al-Azim","الْعَظِيم","Azmat wala"],["Al-Ghafur","الْغَفُور","Bakhshne wala"],["Ash-Shakur","الشَّكُور","Qadr karne wala"],["Al-Aliyy","الْعَلِيّ","Sabse Ucha"],["Al-Kabir","الْكَبِير","Bahut Bada"],["Al-Hafiz","الْحَفِيظ","Hifaazat wala"],["Al-Muqit","الْمُقِيت","Rozi dene wala"],["Al-Hasib","الْحَسِيب","Hisaab karne wala"],["Al-Jalil","الْجَلِيل","Azmat wala"],["Al-Karim","الْكَرِيم","Bada Sakhi"],["Ar-Raqib","الرَّقِيب","Hamesha Dekhta hai"],["Al-Mujib","الْمُجِيب","Dua qubool karne wala"],["Al-Wasi","الْوَاسِع","Bahut Wasi"],["Al-Hakim","الْحَكِيم","Hikmat wala"],["Al-Wadud","الْوَدُود","Mohabbat karne wala"],["Al-Majid","الْمَجِيد","Buzurgi wala"],["Al-Ba'ith","الْبَاعِث","Uthane wala"],["Ash-Shahid","الشَّهِيد","Haazir o Naazir"],["Al-Haqq","الْحَقّ","Sachcha"],["Al-Wakil","الْوَكِيل","Kaafi"],["Al-Qawiyy","الْقَوِيّ","Taqatwar"],["Al-Matin","الْمَتِين","Mazboot"],["Al-Waliyy","الْوَلِيّ","Dost"],["Al-Hamid","الْحَمِيد","Sab Tarif Usi ki"],["Al-Muhsi","الْمُحْصِي","Sab ginta hai"],["Al-Mubdi","الْمُبْدِئ","Pehli baar banane wala"],["Al-Mu'id","الْمُعِيد","Dobara banane wala"],["Al-Muhyi","الْمُحْيِي","Zindagi dene wala"],["Al-Mumit","الْمُمِيت","Maut dene wala"],["Al-Hayy","الْحَيّ","Hamesha Zinda"],["Al-Qayyum","الْقَيُّوم","Sab ko qaim rakhne wala"],["Al-Wajid","الْوَاجِد","Sab milta hai use"],["Al-Majid","الْمَاجِد","Shareef"],["Al-Wahid","الْوَاحِد","Ek"],["Al-Ahad","الْأَحَد","Akela — koi sharik nahi"],["As-Samad","الصَّمَد","Sab ka Sahara"],["Al-Qadir","الْقَادِر","Qadir"],["Al-Muqtadir","الْمُقْتَدِر","Poori tarah Qadir"],["Al-Muqaddim","الْمُقَدِّم","Aage karne wala"],["Al-Mu'akhkhir","الْمُؤَخِّر","Peechhe karne wala"],["Al-Awwal","الْأَوَّل","Sabse Pehla"],["Al-Akhir","الْآخِر","Sabse Aakhir"],["Az-Zahir","الظَّاهِر","Zahir"],["Al-Batin","الْبَاطِن","Chupta"],["Al-Wali","الْوَالِي","Kainaat ka Malik"],["Al-Muta'ali","الْمُتَعَالِي","Sabse Ucha"],["Al-Barr","الْبَرّ","Neki karne wala"],["At-Tawwab","التَّوَّاب","Taubah qubool karne wala"],["Al-Muntaqim","الْمُنْتَقِم","Badla lene wala"],["Al-Afuww","الْعَفُوّ","Maaf karne wala"],["Ar-Ra'uf","الرَّؤُوف","Shafiq"],["Malik-ul-Mulk","مَالِكُ الْمُلْك","Tamam Badshahi ka Malik"],["Dhul-Jalali","ذُو الْجَلَال","Azmat o Ikraam wala"],["Al-Muqsit","الْمُقْسِط","Insaaf dene wala"],["Al-Jami","الْجَامِع","Jama karne wala"],["Al-Ghani","الْغَنِيّ","Bekhauf"],["Al-Mughni","الْمُغْنِي","Ghani karne wala"],["Al-Mani","الْمَانِع","Rokne wala"],["Ad-Darr","الضَّارّ","Nuksan pahunchane wala"],["An-Nafi","النَّافِع","Faida pahunchane wala"],["An-Nur","النُّور","Noor — Roshni"],["Al-Hadi","الْهَادِي","Hidaayat dene wala"],["Al-Badi","الْبَدِيع","Anokha Creator"],["Al-Baqi","الْبَاقِي","Hamesha rehne wala"],["Al-Warith","الْوَارِث","Sab Usi ka hoga"],["Ar-Rashid","الرَّشِيد","Seedha raasta dikhane wala"],["As-Sabur","الصَّبُور","Bahut Sabar wala"]];
+const al=document.getElementById('asmaList');
+asma.forEach(([en,ar,hi],i)=>{const d=document.createElement('div');d.className='asma-item';d.innerHTML=`<div class="asma-ar">${ar}</div><div class="asma-en">${i+1}. ${en}</div><div class="asma-mean">${hi}</div>`;al.appendChild(d);});
+</script>
+</body>
+</html>
