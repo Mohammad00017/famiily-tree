@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Islamic Prophets Family Tree</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#f5a623;--gold-d:#c8780a;
+  --green:#27ae60;--green-l:#eafaf1;
+  --blue:#2471a3;--blue-l:#d6eaf8;
+  --purple:#7d3c98;--purple-l:#f4ecf7;
+  --teal:#148f77;--teal-l:#d1f2eb;
+  --orange:#e67e22;--orange-l:#fef3e2;
+  --red:#e74c3c;--red-l:#fdedec;
+  --ink:#1a252f;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#e8dcc8;font-family:'Nunito',sans-serif;color:var(--ink);}
+
+.poster{
+width:1400px;margin:0 auto;
+background:#fffef9;
+border:7px solid var(–gold);
+border-radius:18px;overflow:hidden;
+box-shadow:0 10px 50px rgba(0,0,0,0.2);
+}
+
+/* HEADER */
+.hdr{
+background:linear-gradient(135deg,#0d3b5e,#1a6ea8,#0d3b5e);
+padding:18px 30px 14px;text-align:center;
+border-bottom:5px solid var(–gold);
+}
+.bismillah{font-family:‘Scheherazade New’,serif;font-size:26px;color:#f9e79f;margin-bottom:4px;}
+.htitle{font-family:‘Fredoka One’,cursive;font-size:40px;color:#fff;text-shadow:2px 3px 0 rgba(0,0,0,0.3);}
+.hsub{font-size:14px;color:#f9e79f;font-weight:700;margin-top:3px;}
+.hstars{font-size:20px;color:var(–gold);letter-spacing:10px;margin-top:5px;}
+
+/* HOW TO READ box */
+.how-to-read{
+background:linear-gradient(135deg,#fff9e6,#fff3cd);
+border:3px solid var(–gold);
+border-radius:14px;
+padding:10px 16px;
+margin:10px 8px 6px;
+display:flex;gap:12px;
+align-items:flex-start;
+flex-wrap:wrap;
+}
+.htr-title{
+font-family:‘Fredoka One’,cursive;
+font-size:14px;color:#c8780a;
+white-space:nowrap;
+}
+.htr-step{
+display:flex;align-items:center;gap:5px;
+font-size:9px;color:#333;font-weight:700;
+}
+.step-num{
+background:var(–gold-d);color:#fff;
+font-family:‘Fredoka One’,cursive;
+font-size:11px;width:22px;height:22px;
+border-radius:50%;display:flex;align-items:center;justify-content:center;
+flex-shrink:0;box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* PATH INDICATOR */
+.path-bar{
+background:#f8f9fa;
+border-bottom:3px solid #eee;
+padding:6px 14px;
+display:flex;align-items:center;gap:0;
+flex-wrap:nowrap;overflow-x:auto;
+}
+.path-item{
+display:flex;align-items:center;gap:0;
+font-size:9px;font-weight:800;
+white-space:nowrap;
+}
+.path-dot{
+width:14px;height:14px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:7px;color:#fff;font-weight:900;
+margin-right:3px;flex-shrink:0;
+}
+.path-arrow{color:#aaa;font-size:14px;margin:0 4px;}
+
+/* MAIN LAYOUT */
+.layout{display:grid;grid-template-columns:290px 1fr 300px;}
+
+/* SIDE PANELS */
+.lpanel{background:#fffbf0;border-right:3px solid #f9e79f;padding:10px 8px;}
+.rpanel{background:#f0fff8;border-left:3px solid #f9e79f;padding:10px 8px;}
+.ph{font-family:‘Fredoka One’,cursive;font-size:11px;background:var(–gold);color:#fff;text-align:center;padding:5px;border-radius:8px;margin-bottom:7px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:0 5px;}
+.asma-item{margin-bottom:2px;padding-bottom:2px;border-bottom:1px dashed #a9dfbf;}
+
+/* TREE */
+.tree{padding:14px 8px 0;background:#fffef9;}
+.col{display:flex;flex-direction:column;align-items:center;}
+.row{display:flex;justify-content:center;align-items:flex-start;gap:10px;}
+
+/* STEP BADGE — for reading guide */
+.step-badge{
+display:inline-flex;align-items:center;gap:4px;
+background:var(–gold-d);color:#fff;
+font-family:‘Fredoka One’,cursive;font-size:9px;
+padding:2px 8px 2px 2px;border-radius:20px;
+margin-bottom:4px;
+box-shadow:0 2px 6px rgba(0,0,0,0.2);
+}
+.step-badge-num{
+background:#fff;color:var(–gold-d);
+font-family:‘Fredoka One’,cursive;font-size:10px;
+width:18px;height:18px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+}
+
+/* START HERE badge */
+.start-here{
+background:linear-gradient(135deg,#e74c3c,#c0392b);
+color:#fff;font-family:‘Fredoka One’,cursive;
+font-size:13px;padding:4px 16px;border-radius:20px;
+box-shadow:0 3px 10px rgba(231,76,60,0.4);
+margin-bottom:6px;
+animation:pulse 2s infinite;
+display:inline-block;
+}
+@keyframes pulse{0%,100%{box-shadow:0 3px 10px rgba(231,76,60,0.4);}50%{box-shadow:0 3px 20px rgba(231,76,60,0.7);}}
+
+/* NABI CARD */
+.nb{
+border-radius:14px;padding:8px 12px;
+text-align:center;position:relative;
+box-shadow:0 3px 10px rgba(0,0,0,0.12);
+border:3px solid;display:inline-block;
+}
+.nb.gold  {background:#fff8e1;border-color:var(–gold);border-width:4px;}
+.nb.blue  {background:var(–blue-l);border-color:var(–blue);}
+.nb.green {background:var(–green-l);border-color:var(–green);}
+.nb.purple{background:var(–purple-l);border-color:var(–purple);}
+.nb.teal  {background:var(–teal-l);border-color:var(–teal);}
+.nb.orange{background:var(–orange-l);border-color:var(–orange);}
+.nb.final {background:linear-gradient(135deg,#fff8dc,#fff3b0);border-color:var(–gold-d);border-width:5px;box-shadow:0 6px 24px rgba(200,120,10,0.35);}
+
+.badge{
+position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+color:#fff;font-family:‘Fredoka One’,cursive;font-size:9.5px;
+padding:2px 12px;border-radius:20px;border:2px solid #fff;
+white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,0.18);
+}
+.bg-gold{background:var(–gold);}
+.bg-blue{background:var(–blue);}
+.bg-green{background:var(–green);}
+.bg-purple{background:var(–purple);}
+.bg-teal{background:var(–teal);}
+.bg-orange{background:var(–orange);}
+.bg-goldd{background:var(–gold-d);}
+
+.nar{font-family:‘Scheherazade New’,serif;font-size:19px;direction:rtl;line-height:1.1;margin-bottom:2px;}
+.nen{font-family:‘Fredoka One’,cursive;font-size:14px;line-height:1.2;}
+.nq{font-size:8.5px;color:#555;margin-top:3px;background:rgba(255,255,255,0.65);border-radius:6px;padding:2px 6px;}
+.nz{font-size:8px;color:#6d4c41;font-weight:800;margin-top:2px;}
+.nk{font-size:8px;color:#444;font-style:italic;margin-top:3px;border-top:1px dashed rgba(0,0,0,0.1);padding-top:3px;}
+
+/* FRIENDLY EXPLAIN BOX */
+.explain{
+background:#f8f9fa;border-left:4px solid;
+border-radius:0 8px 8px 0;
+padding:4px 8px;
+font-size:8.5px;color:#333;
+margin:3px 0;
+max-width:500px;
+display:inline-block;
+}
+
+/* PERSON CHIP */
+.chip{
+background:#f2f3f4;border:2px dashed #aaa;
+border-radius:8px;padding:4px 8px;
+font-size:9px;color:#555;font-weight:700;
+display:inline-block;text-align:center;
+white-space:nowrap;
+}
+.chip.g{border-color:var(–green);color:var(–green);background:var(–green-l);}
+.chip.r{border-color:var(–red);color:var(–red);background:var(–red-l);}
+
+/* NOTE */
+.note{
+background:#fffde7;border:2px dashed var(–gold);
+border-radius:10px;padding:4px 10px;
+font-size:9px;color:#555;text-align:center;
+display:inline-block;font-weight:700;
+}
+
+/* PILL */
+.pill{
+font-family:‘Fredoka One’,cursive;font-size:10.5px;
+display:inline-block;padding:3px 12px;
+border-radius:20px;color:#fff;
+}
+.pill.green{background:var(–green);}
+.pill.purple{background:var(–purple);}
+.pill.teal{background:var(–teal);}
+.pill.orange{background:var(–orange);}
+
+/* COLORED PATH LINE — left edge of each section */
+.path-section{
+position:relative;
+padding-left:0;
+}
+
+/* READING NUMBER on each nabi box */
+.reading-num{
+position:absolute;top:-8px;right:-8px;
+background:#e74c3c;color:#fff;
+font-family:‘Fredoka One’,cursive;
+font-size:9px;width:18px;height:18px;
+border-radius:50%;display:flex;align-items:center;justify-content:center;
+border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.3);
+z-index:10;
+}
+
+/* FOOTER */
+.footer{background:linear-gradient(135deg,#0d3b5e,#1a6ea8);border-top:5px solid var(–gold);display:grid;grid-template-columns:1fr 1fr 1fr;color:#fff;}
+.fc{padding:12px 14px;border-right:1px solid rgba(255,255,255,0.15);}
+.fc:last-child{border-right:none;}
+.ft{font-family:‘Fredoka One’,cursive;font-size:12px;color:#f9e79f;margin-bottom:7px;text-align:center;}
+.dua{background:rgba(255,255,255,0.07);border-left:3px solid var(–gold);padding:4px 8px;margin-bottom:5px;border-radius:0 4px 4px 0;}
+.duar{font-family:‘Scheherazade New’,serif;font-size:13px;color:#f9e79f;direction:rtl;margin-bottom:1px;}
+.duat{font-size:8px;color:#aed6f1;}
+.fact{background:rgba(255,255,255,0.07);border-radius:7px;padding:4px 8px;margin-bottom:4px;}
+.fq{font-size:8.5px;color:#f9e79f;font-weight:900;}
+.fa{font-size:8px;color:#aed6f1;margin-top:1px;}
+.brand{background:#061f33;text-align:center;padding:7px;font-size:9.5px;color:#f9e79f;letter-spacing:2px;font-family:‘Fredoka One’,cursive;}
+
+/* Special Muhammad SAW box */
+.nb.muhammad-special {
+background: linear-gradient(135deg, #1a0a00, #2d1500, #1a0800) !important;
+border: 5px solid #FFD700 !important;
+border-radius: 20px !important;
+box-shadow: 0 0 0 3px #c8780a, 0 0 30px rgba(255,215,0,0.4), 0 8px 30px rgba(0,0,0,0.5) !important;
+position: relative;
+overflow: visible;
+}
+.nb.muhammad-special::before {
+content: “✦ ✦ ✦”;
+position: absolute;
+top: -22px; left: 50%;
+transform: translateX(-50%);
+color: #FFD700;
+font-size: 14px;
+letter-spacing: 6px;
+text-shadow: 0 0 10px rgba(255,215,0,0.8);
+}
+.nb.muhammad-special::after {
+content: “✦ ✦ ✦”;
+position: absolute;
+bottom: -22px; left: 50%;
+transform: translateX(-50%);
+color: #FFD700;
+font-size: 14px;
+letter-spacing: 6px;
+text-shadow: 0 0 10px rgba(255,215,0,0.8);
+}
+@keyframes goldglow {
+0%,100%{box-shadow:0 0 0 3px #c8780a,0 0 25px rgba(255,215,0,0.3),0 8px 30px rgba(0,0,0,0.5);}
+50%{box-shadow:0 0 0 4px #FFD700,0 0 45px rgba(255,215,0,0.6),0 8px 30px rgba(0,0,0,0.5);}
+}
+.nb.muhammad-special { animation: goldglow 2.5s infinite; }
+</style>
+
+</head>
+<body>
+<div class="poster">
+
+<!-- HEADER -->
+
+<div class="hdr">
+  <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+  <div class="htitle">🌳 Islamic Prophets Family Tree — Nabiyyon ka Shajra 🌳</div>
+  <div class="hsub">Adam (AS) se Muhammad ﷺ tak — The Complete Family Tree of All Prophets in Islam</div>
+  <div class="hstars">★ ☪ ★ ☪ ★ ☪ ★</div>
+</div>
+
+<!-- HOW TO READ THIS POSTER -->
+
+<div class="how-to-read">
+  <div class="htr-title">📖 Poster kaise padhe?<br><span style="font-size:10px;color:#888;">How to read this poster:</span></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+    <div class="htr-step"><div class="step-num">1</div> <span>Upar se<br>shuru karo ⬇</span></div>
+    <div style="color:#ccc;font-size:16px;">→</div>
+    <div class="htr-step"><div class="step-num">2</div> <span>Line follow<br>karo ⬇</span></div>
+    <div style="color:#ccc;font-size:16px;">→</div>
+    <div class="htr-step"><div class="step-num">3</div> <span>Ibrahim se<br>2 raste nikle ⬇</span></div>
+    <div style="color:#ccc;font-size:16px;">→</div>
+    <div class="htr-step"><div class="step-num">4</div> <span>Dono raste<br>neeche mile ⬇</span></div>
+    <div style="color:#ccc;font-size:16px;">→</div>
+    <div class="htr-step"><div class="step-num">5</div> <span>Muhammad ﷺ<br>— THE END ⭐</span></div>
+    <div style="width:2px;height:30px;background:#ddd;margin:0 4px;"></div>
+    <div style="font-size:8.5px;color:#555;max-width:200px;">
+      <strong>——</strong> Solid line = Seedha Beta/Bhai &nbsp;|&nbsp; <strong>- -</strong> Dotted = Bhatija/Shagird<br>
+      🔴 Red circle = Reading order number
+    </div>
+  </div>
+</div>
+
+<!-- COLOR PATH BAR -->
+
+<div class="path-bar">
+  <span style="font-size:8.5px;font-weight:900;color:#555;margin-right:8px;">🗺️ Reading Path:</span>
+  <div class="path-item"><div class="path-dot" style="background:#27ae60;">1</div><span style="color:#27ae60;">Adam</span></div>
+  <span class="path-arrow">→</span>
+  <div class="path-item"><div class="path-dot" style="background:#2471a3;">2</div><span style="color:#2471a3;">Idris</span></div>
+  <span class="path-arrow">→</span>
+  <div class="path-item"><div class="path-dot" style="background:#27ae60;">3</div><span style="color:#27ae60;">Nuh</span></div>
+  <span class="path-arrow">→</span>
+  <div class="path-item"><div class="path-dot" style="background:#2471a3;">4</div><span style="color:#2471a3;">Hud</span></div>
+  <span class="path-arrow">+</span>
+  <div class="path-item"><div class="path-dot" style="background:#2471a3;">5</div><span style="color:#2471a3;">Saleh</span></div>
+  <span class="path-arrow">→</span>
+  <div class="path-item"><div class="path-dot" style="background:#f5a623;">6</div><span style="color:#c8780a;font-weight:900;">Ibrahim ⭐ SPLIT</span></div>
+  <span class="path-arrow">→</span>
+  <div style="background:#27ae60;color:#fff;font-size:8px;font-weight:900;padding:2px 7px;border-radius:10px;">LEFT: Arab Path 🌙</div>
+  <span class="path-arrow">→</span>
+  <div class="path-item"><div class="path-dot" style="background:#27ae60;">7</div><span style="color:#27ae60;">Ismail</span></div>
+  <span class="path-arrow">→</span>
+  <div class="path-item"><div class="path-dot" style="background:#e67e22;">•</div><span style="color:#e67e22;">Lut (bhatija)</span></div>
+  <span style="margin:0 6px;color:#aaa;">|</span>
+  <div style="background:#7d3c98;color:#fff;font-size:8px;font-weight:900;padding:2px 7px;border-radius:10px;">RIGHT: Israel Path 💜</div>
+  <span class="path-arrow">→</span>
+  <div class="path-item"><div class="path-dot" style="background:#7d3c98;">8</div><span style="color:#7d3c98;">Ishaq</span></div>
+  <span class="path-arrow">→</span>
+  <div class="path-item"><div class="path-dot" style="background:#7d3c98;">9</div><span style="color:#7d3c98;">Yaqub</span></div>
+  <span class="path-arrow">→</span>
+  <div class="path-item"><div class="path-dot" style="background:#148f77;">···</div><span style="color:#148f77;">Musa/Isa/...</span></div>
+  <span class="path-arrow">→</span>
+  <div style="background:#c8780a;color:#fff;font-size:8px;font-weight:900;padding:2px 8px;border-radius:10px;">⬇ BOTH MEET HERE ⬇</div>
+  <span class="path-arrow">→</span>
+  <div class="path-item"><div class="path-dot" style="background:#c8780a;">🌟</div><span style="color:#c8780a;font-weight:900;">Muhammad ﷺ — THE END</span></div>
+</div>
+
+<!-- MAIN LAYOUT -->
+
+<div class="layout">
+
+<!-- LEFT PANEL: Surahs -->
+
+<div class="lpanel">
+  <div class="ph">📖 114 Surahs Ki List (Quran ke Chapters)</div>
+  <div style="font-size:8px;margin-bottom:5px;text-align:center;"><span style="color:#27ae60;font-weight:800;">● Makki</span> &nbsp;<span style="color:#e74c3c;font-weight:800;">● Madani</span></div>
+  <div class="two-col" id="surahList"></div>
+</div>
+
+<!-- TREE CENTER -->
+
+<div class="tree">
+<div class="col">
+
+<!-- ════ START HERE ════ -->
+
+<div class="start-here">▶ START HERE — Yahan se shuru karo!</div>
+
+<!-- ══════════════ ADAM ══════════════ -->
+
+<div style="position:relative;display:inline-block;">
+  <div class="reading-num">1</div>
+  <div class="nb gold" style="min-width:240px;">
+    <div class="badge bg-gold" style="font-size:10px;">✦ PEHLE NABI — PEHLE INSAAN ✦</div>
+    <div class="nar" style="color:#b8860b;">آدَم عليه السلام</div>
+    <div class="nen" style="color:#c8780a;font-size:16px;">Hazrat Adam (AS)</div>
+    <div class="nq">🌍 Poori zameen par bheje gaye</div>
+    <div class="nz">📖 Quran mein 25 baar zikr</div>
+    <div class="nk">✨ Yeh duniya ke SABSE PEHLE insaan the aur sabse pehle Nabi (Prophet) bhi! Allah ne inhe mitti se banaya. Inhi ki aulad se poori insaaniyat aai!</div>
+  </div>
+</div>
+
+<!-- EXPLAIN for non-Muslim -->
+
+<div class="explain" style="border-color:var(--gold);background:#fffde7;">
+  💡 <strong>Nabi/Prophet kya hota hai?</strong> Woh insaan jise Allah (God) ne apna paigham logon tak pahunchane ke liye chuna. Yeh ek tarah ke guide the!
+</div>
+
+<!-- Adam ke 3 bete -->
+
+<svg width="560" height="55" viewBox="0 0 560 55" style="display:block;overflow:visible;">
+  <line x1="280" y1="0" x2="280" y2="22" stroke="#f5a623" stroke-width="3"/>
+  <line x1="80" y1="22" x2="480" y2="22" stroke="#f5a623" stroke-width="3"/>
+  <line x1="80"  y1="22" x2="80"  y2="55" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="5,4"/>
+  <line x1="280" y1="22" x2="280" y2="55" stroke="#aaa" stroke-width="2" stroke-dasharray="5,4"/>
+  <line x1="480" y1="22" x2="480" y2="55" stroke="#27ae60" stroke-width="3"/>
+  <text x="165" y="16" font-size="9" fill="#c8780a" font-family="Nunito" font-weight="800">Adam ke 3 Bete (Children):</text>
+</svg>
+<div style="display:flex;gap:20px;width:560px;justify-content:space-around;align-items:flex-start;">
+  <div style="text-align:center;width:155px;">
+    <div class="chip r" style="width:148px;">❌ Qabil (Beta 1)<br><span style="font-size:7.5px;">Bura kaam kiya — Is taraf se koi Nabi nahi aaya</span></div>
+  </div>
+  <div style="text-align:center;width:155px;">
+    <div class="chip" style="width:148px;">Habil (Beta 2)<br><span style="font-size:7.5px;">Bura kaam nahi kiya — Is taraf se bhi koi Nabi nahi aaya</span></div>
+  </div>
+  <div style="text-align:center;width:155px;">
+    <div class="chip g" style="width:155px;">✅ Shayth (Beta 3)<br><span style="font-size:7.5px;">Is bete ki aagey aane wali naslein (generations) mein Nabi aate rahe!</span></div>
+  </div>
+</div>
+
+<svg width="300" height="18" viewBox="0 0 300 18" style="display:block;overflow:visible;">
+  <line x1="150" y1="0" x2="150" y2="18" stroke="#27ae60" stroke-width="3"/>
+</svg>
+<div class="note">🔗 Shayth → Anush → Qinan → Mahlail → Al-Yard → Lamik (yeh sab Shayth ki nasl hain)</div>
+<svg width="300" height="14" viewBox="0 0 300 14" style="display:block;overflow:visible;">
+  <line x1="150" y1="0" x2="150" y2="14" stroke="#2471a3" stroke-width="3"/>
+</svg>
+
+<!-- ══════════════ IDRIS ══════════════ -->
+
+<div style="position:relative;display:inline-block;">
+  <div class="reading-num">2</div>
+  <div class="nb blue" style="min-width:215px;">
+    <div class="badge bg-blue">✦ Doosre Nabi ✦</div>
+    <div class="nar" style="color:#2471a3;">إِدْرِيس عليه السلام</div>
+    <div class="nen" style="color:#2471a3;">Hazrat Idris (AS)</div>
+    <div class="nq">🏛️ Iraq (Babul) mein bheje gaye</div>
+    <div class="nz">📖 Quran mein 2 baar zikr</div>
+    <div class="nk">✨ Duniya ke PEHLE likhne waale Nabi! Unhe astronomy (sitaron ka ilm) aur tailoring (kapde silna) bhi aata tha!</div>
+  </div>
+</div>
+
+<svg width="300" height="12" viewBox="0 0 300 12" style="display:block;overflow:visible;">
+  <line x1="150" y1="0" x2="150" y2="12" stroke="#2471a3" stroke-width="2.5"/>
+</svg>
+<div class="note">🔗 Lamik (Idris ke bete) → Mathuselah → Nuh (AS) ke Walid (Father)</div>
+<svg width="300" height="14" viewBox="0 0 300 14" style="display:block;overflow:visible;">
+  <line x1="150" y1="0" x2="150" y2="14" stroke="#27ae60" stroke-width="3"/>
+</svg>
+
+<!-- ══════════════ NUH ══════════════ -->
+
+<div style="position:relative;display:inline-block;">
+  <div class="reading-num">3</div>
+  <div class="nb green" style="min-width:240px;">
+    <div class="badge bg-green">✦ Teesre Nabi 🚢 ✦</div>
+    <div class="nar" style="color:#27ae60;">نُوح عليه السلام</div>
+    <div class="nen" style="color:#27ae60;">Hazrat Nuh / Noah (AS)</div>
+    <div class="nq">🌊 Poori zameen par bheje gaye</div>
+    <div class="nz">📖 Quran mein 43 baar zikr</div>
+    <div class="nk">✨ 950 SAAL tak logon ko samjhaya! Ek badi Kashti (Ark/Boat) banayi. Bara Toofan (Great Flood) aaya — sirf jo maane woh bache!</div>
+  </div>
+</div>
+
+<div class="explain" style="border-color:#27ae60;background:#eafaf1;">
+  💡 <strong>Non-Muslims ke liye:</strong> Hazrat Nuh wahi hain jo Bible mein "Noah" hain — woh Ark (Kishti) waali story! Yeh Islam, Christianity aur Judaism teeno mein maane jate hain!
+</div>
+
+<!-- Nuh ke 4 bete -->
+
+<svg width="600" height="55" viewBox="0 0 600 55" style="display:block;overflow:visible;">
+  <line x1="300" y1="0" x2="300" y2="22" stroke="#27ae60" stroke-width="3"/>
+  <line x1="70" y1="22" x2="530" y2="22" stroke="#27ae60" stroke-width="3"/>
+  <line x1="70"  y1="22" x2="70"  y2="55" stroke="#27ae60" stroke-width="3"/>
+  <line x1="220" y1="22" x2="220" y2="55" stroke="#aaa" stroke-width="2" stroke-dasharray="5,4"/>
+  <line x1="380" y1="22" x2="380" y2="55" stroke="#aaa" stroke-width="2" stroke-dasharray="5,4"/>
+  <line x1="530" y1="22" x2="530" y2="55" stroke="#e74c3c" stroke-width="3"/>
+  <text x="185" y="16" font-size="9" fill="#27ae60" font-family="Nunito" font-weight="800">Nuh ke sirf 4 Bete the — inn 4 ke علاوہ aur koi nahi:</text>
+</svg>
+<div style="display:flex;gap:8px;width:600px;justify-content:space-around;align-items:flex-start;">
+  <div style="width:130px;text-align:center;">
+    <div class="chip g" style="width:128px;">✅ Sam (Beta 1)<br><span style="font-size:7.5px;">Is ki nasl mein aage Nabi aate rahe!</span></div>
+  </div>
+  <div style="width:130px;text-align:center;">
+    <div class="chip" style="width:128px;">Ham (Beta 2)<br><span style="font-size:7.5px;">Koi Nabi nahi aaya</span></div>
+  </div>
+  <div style="width:130px;text-align:center;">
+    <div class="chip" style="width:128px;">Yafith (Beta 3)<br><span style="font-size:7.5px;">Koi Nabi nahi aaya</span></div>
+  </div>
+  <div style="width:130px;text-align:center;">
+    <div class="chip r" style="width:128px;">❌ Yam (Beta 4)<br><span style="font-size:7.5px;">Kaafir tha — Toofan mein dub gaya!</span></div>
+  </div>
+</div>
+
+<svg width="300" height="18" viewBox="0 0 300 18" style="display:block;overflow:visible;">
+  <line x1="150" y1="0" x2="150" y2="18" stroke="#27ae60" stroke-width="3"/>
+</svg>
+<div class="note" style="max-width:520px;">🔗 Sam → Artakhshad → Shalikh → Falikh → Nahur → Azar (Ibrahim AS ke Walid/Father)</div>
+
+<!-- HUD & SALEH aside -->
+
+<svg width="300" height="10" viewBox="0 0 300 10" style="display:block;overflow:visible;">
+  <line x1="150" y1="0" x2="150" y2="10" stroke="#27ae60" stroke-width="2"/>
+</svg>
+<div class="explain" style="border-color:#2471a3;max-width:520px;">
+  ⚡ <strong>Is hi zamane mein 2 aur Nabi bhi aaye — lekin alag jagahon par (Ibrahim AS se pehle):</strong>
+</div>
+<div style="display:flex;gap:16px;margin:6px 0;">
+  <div style="position:relative;display:inline-block;">
+    <div class="reading-num">4</div>
+    <div class="nb blue" style="min-width:155px;padding:7px 9px;">
+      <div class="badge bg-blue" style="font-size:8.5px;">✦ Chauthe Nabi 🏜️</div>
+      <div class="nar" style="color:#2471a3;font-size:15px;">هُود عليه السلام</div>
+      <div class="nen" style="color:#2471a3;font-size:12px;">Hazrat Hud (AS)</div>
+      <div class="nq" style="font-size:7.5px;">🏜️ Arab — Qaum-e-Aad</div>
+      <div class="nz" style="font-size:7px;">📖 Quran mein 7 baar</div>
+      <div class="nk" style="font-size:7px;">✨ Buri qaum ko samjhaya — Qaum maani nahi — Tabah ho gayi!</div>
+    </div>
+  </div>
+  <div style="position:relative;display:inline-block;">
+    <div class="reading-num">5</div>
+    <div class="nb blue" style="min-width:155px;padding:7px 9px;">
+      <div class="badge bg-blue" style="font-size:8.5px;">✦ Panchwe Nabi 🐪</div>
+      <div class="nar" style="color:#2471a3;font-size:15px;">صَالِح عليه السلام</div>
+      <div class="nen" style="color:#2471a3;font-size:12px;">Hazrat Saleh (AS)</div>
+      <div class="nq" style="font-size:7.5px;">🐪 Arab — Qaum-e-Thamud</div>
+      <div class="nz" style="font-size:7px;">📖 Quran mein 9 baar</div>
+      <div class="nk" style="font-size:7px;">✨ Ek Jaadui Unta (Camel) — Mujiza! Qaum ne nahi maana — Tabah ho gayi!</div>
+    </div>
+  </div>
+</div>
+
+<!-- → IBRAHIM -->
+
+<svg width="300" height="16" viewBox="0 0 300 16" style="display:block;overflow:visible;">
+  <line x1="150" y1="0" x2="150" y2="16" stroke="#f5a623" stroke-width="3.5"/>
+</svg>
+
+<!-- ══════════════ IBRAHIM — THE BIG SPLIT ══════════════ -->
+
+<div style="position:relative;display:inline-block;">
+  <div class="reading-num" style="background:#c8780a;font-size:11px;width:20px;height:20px;">6</div>
+  <div class="nb gold" style="min-width:295px;border-width:5px;">
+    <div class="badge bg-goldd" style="font-size:11px;padding:3px 14px;">⭐ Yahan se 2 ALAG RAASTE NIKLE — SPLITTING POINT ⭐</div>
+    <div class="nar" style="color:#b8860b;font-size:25px;">إِبْرَاهِيم عليه السلام</div>
+    <div class="nen" style="color:#c8780a;font-size:18px;">Hazrat Ibrahim / Abraham (AS)</div>
+    <div class="nq">🏙️ Iraq (Ur/Babul) mein paida hue — Canaan mein bhi rahe</div>
+    <div class="nz">📖 Quran mein 69 baar — Tamam Anbiya mein SABSE ZYADA zikr!</div>
+    <div class="nk">✨ Khalilullah = Allah ke Khaas Dost · Kaaba (Islam ka Holy House) banaya · Aag mein daale gaye magar jale nahi — Mujiza!</div>
+  </div>
+</div>
+<div class="explain" style="border-color:#c8780a;background:#fff8e1;max-width:550px;">
+  💡 <strong>Non-Muslims ke liye:</strong> Ibrahim wahi hain jo Bible mein "Abraham" hain — Judaism, Christianity aur Islam teeno ka ek bada Nabi! Yahan se do alag raste nikle — dono NEECHE milte hain Muhammad ﷺ par!
+</div>
+
+<!-- IBRAHIM SPLIT SVG — properly wide -->
+
+<svg width="950" height="65" viewBox="0 0 950 65" style="display:block;overflow:visible;">
+  <line x1="475" y1="0"  x2="475" y2="28" stroke="#f5a623" stroke-width="3.5"/>
+  <line x1="115" y1="28" x2="835" y2="28" stroke="#f5a623" stroke-width="3.5"/>
+  <!-- Left: Ismail (solid green) -->
+  <line x1="115" y1="28" x2="115" y2="65" stroke="#27ae60" stroke-width="3.5"/>
+  <!-- Center-right: Ishaq (solid purple) -->
+  <line x1="475" y1="28" x2="475" y2="65" stroke="#7d3c98" stroke-width="3.5"/>
+  <!-- Far right: Lut (dotted orange — bhatija) -->
+  <line x1="835" y1="28" x2="835" y2="65" stroke="#e67e22" stroke-width="2.5" stroke-dasharray="7,5"/>
+  <!-- Arrow labels -->
+  <text x="18"  y="24" font-size="10" fill="#27ae60"  font-family="Nunito" font-weight="900">⬇ Beta 1: Ismail</text>
+  <text x="300" y="24" font-size="10" fill="#7d3c98"  font-family="Nunito" font-weight="900">Beta 2: Ishaq ⬇</text>
+  <text x="720" y="24" font-size="9"  fill="#e67e22" font-family="Nunito" font-weight="700">Bhatija: Lut - -⬇</text>
+  <!-- Color indicators bottom -->
+  <text x="30"  y="60" font-size="9" fill="#27ae60" font-family="Nunito" font-weight="800">🌙 Arab Path</text>
+  <text x="350" y="60" font-size="9" fill="#7d3c98" font-family="Nunito" font-weight="800">💜 Bani Israel Path</text>
+  <text x="700" y="60" font-size="9" fill="#e67e22" font-family="Nunito">⚠️ Bhatija (not beta)</text>
+</svg>
+
+<!-- 3 COLUMNS — TABLE for equal height -->
+
+<table style="width:950px;border-collapse:collapse;table-layout:fixed;">
+<tr style="vertical-align:top;">
+
+  <!-- ═══ LEFT COL: ISMAIL → QURAYSH ═══ -->
+
+  <td style="width:290px;padding:0 8px 0 0;border-right:3px dashed rgba(200,120,10,0.4);vertical-align:top;">
+    <div style="display:flex;flex-direction:column;align-items:center;">
+    <div class="pill green" style="font-size:10px;margin-bottom:5px;">🌙 Arab Shaakh — Ibrahim ka Beta 1</div>
+
+```
+<!-- GUIDE BOX for this branch -->
+<div style="background:#fff8e1;border:2px solid #f5a623;border-radius:10px;padding:8px 10px;width:255px;margin-bottom:8px;font-size:8px;color:#555;line-height:1.7;">
+  <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#c8780a;margin-bottom:4px;">📌 Is shaakh ko kaise padhe?</div>
+  ✅ Ismail (AS) se Quraysh Qabila bana<br>
+  ✅ Quraysh se Muhammad ﷺ aaye<br>
+  ✅ Har box ek peedhi (generation) hai<br>
+  ✅ Aakhri box Muhammad ﷺ se milta hai ⬇️
+</div>
+
+<!-- ISMAIL -->
+<div style="position:relative;display:inline-block;">
+  <div class="reading-num">7</div>
+  <div class="nb green" style="width:255px;">
+    <div class="badge bg-green">✦ Satwe Nabi</div>
+    <div class="nar" style="color:#27ae60;">إِسْمَاعِيل عليه السلام</div>
+    <div class="nen" style="color:#27ae60;">Hazrat Ismail / Ishmael (AS)</div>
+    <div class="nq" style="font-size:8.5px;">🕋 Mecca (Arab) — Hajra ke bete</div>
+    <div class="nz" style="font-size:8px;">📖 Quran mein 12 baar</div>
+    <div class="nk" style="font-size:8px;">✨ Ibrahim ke saath Kaaba banaya! Arab Nabiyyon ke Pardada!</div>
+  </div>
+</div>
+
+<svg width="14" height="14" viewBox="0 0 14 14" style="display:block;"><line x1="7" y1="0" x2="7" y2="14" stroke="#27ae60" stroke-width="3"/></svg>
+<div style="background:#f0fff4;border:2px solid #27ae60;border-radius:8px;padding:6px 12px;width:255px;text-align:center;font-size:9px;font-weight:800;color:#27ae60;">
+  🔗 Ismail ki aulad → Quraysh Qabila — Har peedhi (Generation):
+</div>
+
+<!-- Generation 1 -->
+<svg width="14" height="10" viewBox="0 0 14 10" style="display:block;"><line x1="7" y1="0" x2="7" y2="10" stroke="#27ae60" stroke-width="2.5"/></svg>
+<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#27ae60;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 1</span>
+    <span style="font-size:10px;font-weight:900;color:#27ae60;">Adnan</span>
+  </div>
+  <div style="font-size:8px;color:#333;line-height:1.6;">
+    🔗 Ismail (AS) ki nasl se — Quraysh ka asli purkha<br>
+    👤 Inhi se poori Quraysh nasl shuru hui<br>
+    📍 Hijaz (Arab) mein rehte the
+  </div>
+</div>
+
+<!-- Generation 2 -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#aaa" stroke-width="2"/></svg>
+<div style="background:#f8f9fa;border:2px dashed #aaa;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#888;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 2</span>
+    <span style="font-size:10px;font-weight:900;color:#555;">Ma'ad</span>
+  </div>
+  <div style="font-size:8px;color:#555;line-height:1.6;">
+    👤 Adnan ke seedhe bete<br>
+    🔗 Silsila inhi ke zariye aage bada
+  </div>
+</div>
+
+<!-- Generation 3 -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#aaa" stroke-width="2"/></svg>
+<div style="background:#f8f9fa;border:2px dashed #aaa;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#888;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 3</span>
+    <span style="font-size:10px;font-weight:900;color:#555;">Nizar</span>
+  </div>
+  <div style="font-size:8px;color:#555;line-height:1.6;">
+    👤 Ma'ad ke seedhe bete<br>
+    👦 Inke 4 bete the — Mudhar sabse mashhoor<br>
+    🔗 Char qabiyle inse bane
+  </div>
+</div>
+
+<!-- Generation 4 — IMPORTANT -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#27ae60" stroke-width="2.5"/></svg>
+<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#27ae60;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 4 ⭐</span>
+    <span style="font-size:10px;font-weight:900;color:#27ae60;">Mudhar</span>
+  </div>
+  <div style="font-size:8px;color:#333;line-height:1.6;">
+    👤 Nizar ke bete<br>
+    ⭐ <strong>Sabse ahem peedhi!</strong><br>
+    💡 Inhi ki nasl se Muhammad ﷺ aaye!<br>
+    🗣️ Mudhar ki Arabic sabse safhi thi
+  </div>
+</div>
+
+<!-- Generation 5-6 -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#aaa" stroke-width="2"/></svg>
+<div style="background:#f8f9fa;border:2px dashed #aaa;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#888;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 5-6</span>
+    <span style="font-size:10px;font-weight:900;color:#555;">Ilyas → Mudrikah</span>
+  </div>
+  <div style="font-size:8px;color:#555;line-height:1.6;">
+    👤 Mudhar ke bete aur pote<br>
+    🔗 Silsila Mecca ki taraf badh raha tha
+  </div>
+</div>
+
+<!-- Generation 7-8 -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#aaa" stroke-width="2"/></svg>
+<div style="background:#f8f9fa;border:2px dashed #aaa;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#888;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 7-8</span>
+    <span style="font-size:10px;font-weight:900;color:#555;">Khuzaymah → Kinanah</span>
+  </div>
+  <div style="font-size:8px;color:#555;line-height:1.6;">
+    👤 Mudrikah ki nasl<br>
+    📍 Mecca ke aas paas aane lage<br>
+    🕋 Kaaba se inki badi wabastagi thi
+  </div>
+</div>
+
+<!-- Generation 9 — QURAYSH NAME -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#27ae60" stroke-width="2.5"/></svg>
+<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#27ae60;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 9 🌟</span>
+    <span style="font-size:10px;font-weight:900;color:#27ae60;">Fihr — Kinanah ke Bete</span>
+  </div>
+  <div style="font-size:8px;color:#333;line-height:1.6;">
+    👤 Kinanah ke seedhe bete<br>
+    🌟 <strong>Inhi ka lakab (title) "Quraysh" tha!</strong><br>
+    🏆 Isliye poora qabila "Quraysh" kehlaya<br>
+    💡 Muhammad ﷺ isi mashhoor qabila se hain!
+  </div>
+</div>
+
+<!-- Generation 10-12 -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#aaa" stroke-width="2"/></svg>
+<div style="background:#f8f9fa;border:2px dashed #aaa;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#888;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 10-12</span>
+    <span style="font-size:10px;font-weight:900;color:#555;">Ghalib → Lu'ay → Ka'b</span>
+  </div>
+  <div style="font-size:8px;color:#555;line-height:1.6;">
+    👤 Fihr ki nasl<br>
+    📍 Mecca mein mukim ho gaye<br>
+    🔗 Silsila jari — qabila bada hota gaya
+  </div>
+</div>
+
+<!-- Generation 13-14 -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#aaa" stroke-width="2"/></svg>
+<div style="background:#f8f9fa;border:2px dashed #aaa;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#888;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 13-14</span>
+    <span style="font-size:10px;font-weight:900;color:#555;">Murrah → Kilab</span>
+  </div>
+  <div style="font-size:8px;color:#555;line-height:1.6;">
+    👤 Ka'b ki nasl<br>
+    🔗 Qabila mazboot hota raha<br>
+    📍 Mecca mein izzatdar ghar
+  </div>
+</div>
+
+<!-- Generation 15 — QUSAI -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#27ae60" stroke-width="2.5"/></svg>
+<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#27ae60;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 15 🌟</span>
+    <span style="font-size:10px;font-weight:900;color:#27ae60;">Qusai — Kilab ke Bete</span>
+  </div>
+  <div style="font-size:8px;color:#333;line-height:1.6;">
+    👤 Kilab ke seedhe bete<br>
+    🕋 <strong>Kaaba ki dekhbhaal inke haath aayi!</strong><br>
+    👑 Mecca ke Badshah jaise — sab inse darte<br>
+    🏠 Qabila ko Mecca mein basa diya<br>
+    🔑 Inke paas Kaaba ki chaabi thi
+  </div>
+</div>
+
+<!-- Generation 16 -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#aaa" stroke-width="2"/></svg>
+<div style="background:#f8f9fa;border:2px dashed #aaa;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#888;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 16</span>
+    <span style="font-size:10px;font-weight:900;color:#555;">Abd Manaf — Qusai ke Bete</span>
+  </div>
+  <div style="font-size:8px;color:#555;line-height:1.6;">
+    👤 Qusai ke seedhe bete<br>
+    🤝 Qabila ki zimmedaari sambhali<br>
+    🌍 Arab mein inki bahut izzat thi
+  </div>
+</div>
+
+<!-- Generation 17 — HASHIM -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#c8780a" stroke-width="2.5"/></svg>
+<div style="background:#fff8e1;border:2px solid #c8780a;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#c8780a;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 17 ⭐</span>
+    <span style="font-size:10px;font-weight:900;color:#c8780a;">Hashim — Abd Manaf ke Bete</span>
+  </div>
+  <div style="font-size:8px;color:#333;line-height:1.6;">
+    👤 Abd Manaf ke seedhe bete<br>
+    🍞 <strong>Hajiyyon ko roti khilate the — "Hashim" naam isi wajah se!</strong><br>
+    💰 Bahut ameer aur sakhi the<br>
+    🏆 "Banu Hashim" khandaan — Muhammad ﷺ issi se!<br>
+    🌍 Syria aur Yemen se trade karte the
+  </div>
+</div>
+
+<!-- Generation 18 — ABD AL-MUTTALIB -->
+<svg width="14" height="8" viewBox="0 0 14 8" style="display:block;"><line x1="7" y1="0" x2="7" y2="8" stroke="#c8780a" stroke-width="2.5"/></svg>
+<div style="background:#fff8e1;border:2px solid #c8780a;border-radius:10px;padding:8px 12px;width:255px;">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+    <span style="background:#c8780a;color:#fff;font-size:8px;font-weight:900;padding:1px 6px;border-radius:10px;">Peedhi 18 ⭐⭐</span>
+    <span style="font-size:10px;font-weight:900;color:#c8780a;">Abd al-Muttalib — Hashim ke Bete</span>
+  </div>
+  <div style="font-size:8px;color:#333;line-height:1.7;">
+    👤 Hashim ke seedhe bete<br>
+    👴 <strong>Muhammad ﷺ ke DADA (Grandfather)!</strong><br>
+    💧 <strong>Zamzam ka muqaddas kuaan dobara khoda!</strong><br>
+    👑 Mecca ke sardar — tamam Arab mein izzat<br>
+    👶 Muhammad ﷺ ko 8 saal ki umra tak pala<br>
+    🐘 "Saal-ul-Feel" (Haathi ka saal) mein pote ki hifaazat ki
+  </div>
+</div>
+
+<svg width="14" height="10" viewBox="0 0 14 10" style="display:block;"><line x1="7" y1="0" x2="7" y2="10" stroke="#c8780a" stroke-width="3"/></svg>
+<div style="display:flex;gap:5px;width:255px;justify-content:center;">
+  <div style="background:#fff8e1;border:2px solid #c8780a;border-radius:8px;padding:6px 8px;width:118px;text-align:center;">
+    <div style="font-size:9.5px;font-weight:900;color:#c8780a;">Abdullah</div>
+    <div style="font-size:7.5px;color:#555;"><strong>Muhammad ﷺ ke Walid</strong> (Father)</div>
+  </div>
+  <div style="display:flex;align-items:center;font-size:14px;color:#c8780a;font-weight:900;">+</div>
+  <div style="background:#fff8e1;border:2px solid #c8780a;border-radius:8px;padding:6px 8px;width:118px;text-align:center;">
+    <div style="font-size:9.5px;font-weight:900;color:#c8780a;">Aminah</div>
+    <div style="font-size:7.5px;color:#555;"><strong>Muhammad ﷺ ki Walida</strong> (Mother)</div>
+  </div>
+</div>
+
+<svg width="14" height="10" viewBox="0 0 14 10" style="display:block;"><line x1="7" y1="0" x2="7" y2="10" stroke="#c8780a" stroke-width="3"/></svg>
+
+<!-- Muhammad SAW ki life facts to fill height -->
+<div style="background:linear-gradient(135deg,#fff8e1,#fff3cd);border:2px solid #c8780a;border-radius:10px;padding:10px 12px;width:255px;margin-bottom:8px;">
+  <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#c8780a;margin-bottom:6px;text-align:center;">📜 Muhammad ﷺ ki Zindagi ke Khaas Lamhe:</div>
+  <div style="font-size:8.5px;color:#333;line-height:1.8;">
+    🌙 <strong>570 CE</strong> — Mecca mein paida hue (Year of Elephant)<br>
+    👶 <strong>6 saal</strong> — Walida Aminah ka inteqal hua<br>
+    👴 <strong>8 saal</strong> — Dada Abd al-Muttalib ka inteqal<br>
+    🧔 <strong>Chacha Abu Talib</strong> ne pala<br>
+    💍 <strong>25 saal</strong> — Khadijah (RA) se nikah<br>
+    🌟 <strong>40 saal</strong> — Pehli Wahy — Quran ka aghaz<br>
+    🕌 <strong>622 CE</strong> — Hijrat — Mecca se Madina<br>
+    ✅ <strong>632 CE</strong> — Wisaal — 63 saal ki umra mein
+  </div>
+</div>
+
+<div style="background:#eafaf1;border:2px solid #27ae60;border-radius:10px;padding:10px 12px;width:255px;margin-bottom:8px;">
+  <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#27ae60;margin-bottom:6px;text-align:center;">⭐ Muhammad ﷺ ke Khaas Alqaab (Titles):</div>
+  <div style="font-size:8.5px;color:#333;line-height:1.8;">
+    🌟 <strong>Rahmatan lil Alameen</strong> — Mercy for all worlds<br>
+    🤝 <strong>Al-Amin</strong> — The Trustworthy (pehle se title tha)<br>
+    📖 <strong>Khatam-un-Nabiyyin</strong> — Last of all Prophets<br>
+    ☀️ <strong>Siraj-un-Munir</strong> — A Glowing Lamp<br>
+    🕊️ <strong>Al-Mustafa</strong> — The Chosen One
+  </div>
+</div>
+
+<div style="background:#d6eaf8;border:2px solid #2471a3;border-radius:10px;padding:10px 12px;width:255px;">
+  <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#2471a3;margin-bottom:6px;text-align:center;">💡 Non-Muslims ke liye:</div>
+  <div style="font-size:8.5px;color:#333;line-height:1.7;">
+    Muhammad ﷺ Islam ke <strong>aakhri aur sabse bade Nabi</strong> hain.<br>
+    Islam, Christianity aur Judaism teeno ke Nabi Adam, Ibrahim, Musa aur Isa (AS) ek hi hain.<br>
+    Muhammad ﷺ ne Quran diya — jo aaj bhi <strong>bilkul asli</strong> form mein maujood hai.
+  </div>
+</div>
+
+<svg width="14" height="14" viewBox="0 0 14 14" style="display:block;"><line x1="7" y1="0" x2="7" y2="14" stroke="#c8780a" stroke-width="3"/></svg>
+<div style="background:linear-gradient(135deg,#fff3cd,#ffe8a0);border:2px solid #c8780a;border-radius:8px;padding:5px 12px;width:255px;text-align:center;font-size:9px;font-weight:800;color:#c8780a;">
+  ⬇️ Seedha Muhammad ﷺ se connect hota hai!
+</div>
+</div>
+```
+
+  </td>
+
+  <!-- ═══ CENTER COL: ISHAQ → BANI ISRAEL — DETAILED ═══ -->
+
+  <td style="width:400px;padding:0 6px;border-right:3px dashed rgba(231,76,60,0.3);vertical-align:top;">
+    <div style="display:flex;flex-direction:column;align-items:center;">
+
+```
+<div class="pill purple" style="font-size:10px;margin-bottom:5px;">💜 Bani Israel Shaakh — Ibrahim ka Beta 2</div>
+
+<!-- Line guide -->
+<div style="background:#f4ecf7;border:2px solid #7d3c98;border-radius:10px;padding:7px 12px;width:340px;margin-bottom:8px;font-size:8px;color:#444;line-height:1.8;">
+  <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#7d3c98;margin-bottom:3px;">📌 Lines ka matlab — yaad kar lo:</div>
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+    <svg width="30" height="10"><line x1="0" y1="5" x2="30" y2="5" stroke="#148f77" stroke-width="2.5"/></svg>
+    <span><strong>Solid line</strong> = Seedha Beta ya Bhai (blood relation)</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+    <svg width="30" height="10"><line x1="0" y1="5" x2="30" y2="5" stroke="#148f77" stroke-width="2.5" stroke-dasharray="5,3"/></svg>
+    <span><strong>Dotted line</strong> = Shagird (Student) — beta nahi</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <div style="background:#148f77;color:#fff;font-size:7px;padding:1px 6px;border-radius:8px;white-space:nowrap;">Baap → Beta</div>
+    <span>Label box batata hai kya rishta hai</span>
+  </div>
+</div>
+
+<!-- ════════ ISHAQ ════════ -->
+<div style="position:relative;display:inline-block;">
+  <div class="reading-num">8</div>
+  <div class="nb purple" style="width:340px;">
+    <div class="badge bg-purple">✦ Aathwe Nabi — Ibrahim ka SEEDHA BETA</div>
+    <div class="nar" style="color:#7d3c98;">إِسْحَاق عليه السلام</div>
+    <div class="nen" style="color:#7d3c98;">Hazrat Ishaq / Isaac (AS)</div>
+    <div class="nq" style="font-size:8.5px;">🏕️ Canaan (Palestine) — Sara (bibi) ke bete</div>
+    <div class="nz" style="font-size:8px;">📖 Quran mein 17 baar</div>
+    <div style="font-size:8px;color:#333;margin-top:4px;border-top:1px dashed #c9a0dc;padding-top:4px;line-height:1.65;">
+      👤 Ibrahim ki bibi <strong>Sara</strong> ke bete — Hajra wale Ismail ke sautele bhai<br>
+      👶 Budhape mein paida hue — bada Mujiza!<br>
+      🌟 Bani Israel ke asli purkhe<br>
+      💡 Inhi ki nasl mein Musa, Dawud, Sulaiman, Isa (AS) aaye!
+    </div>
+  </div>
+</div>
+
+
+<div style="display:flex;flex-direction:column;align-items:center;margin:3px 0;">
+  <svg width="20" height="14" viewBox="0 0 20 14" style="display:block;">
+    <line x1="10" y1="0" x2="10" y2="14" stroke="#7d3c98" stroke-width="3" />
+  </svg>
+  <div style="background:#7d3c98;color:#fff;font-size:7.5px;font-weight:900;padding:2px 10px;border-radius:10px;font-family:'Fredoka One',cursive;letter-spacing:0.5px;">⬇️ Ishaq ke SEEDHE BETE:</div>
+  <svg width="20" height="10" viewBox="0 0 20 10" style="display:block;">
+    <line x1="10" y1="0" x2="10" y2="10" stroke="#7d3c98" stroke-width="3" />
+  </svg>
+</div>
+<!-- ════════ YAQUB ════════ -->
+<div style="position:relative;display:inline-block;">
+  <div class="reading-num">9</div>
+  <div class="nb purple" style="width:340px;">
+    <div class="badge bg-purple">✦ Nauve Nabi — Ishaq ke SEEDHE BETE</div>
+    <div class="nar" style="color:#7d3c98;">يَعْقُوب عليه السلام</div>
+    <div class="nen" style="color:#7d3c98;">Hazrat Yaqub / Jacob (AS)</div>
+    <div class="nq" style="font-size:8.5px;">🏕️ Canaan — Allah ne naam diya "Israel"!</div>
+    <div class="nz" style="font-size:8px;">📖 Quran mein 16 baar</div>
+    <div style="font-size:8px;color:#333;margin-top:4px;border-top:1px dashed #c9a0dc;padding-top:4px;line-height:1.65;">
+      👤 Ishaq ke seedhe bete — Baap se seedha Nabi!<br>
+      📛 "Israel" ka matlab = "Allah ka Banda"<br>
+      👦 Inke <strong>12 bete</strong> the — inhi se "Bani Israel" qaum bani!<br>
+      😢 Bete Yusuf (AS) se saalon bichhde — phir Allah ne milaya
+    </div>
+  </div>
+</div>
+
+<!-- Yaqub ke 12 bete split -->
+<div style="margin:6px 0;width:340px;">
+  <div style="background:#7d3c98;color:#fff;font-size:8px;font-weight:900;padding:3px 12px;border-radius:10px;font-family:'Fredoka One',cursive;text-align:center;margin-bottom:3px;">⬇️ Yaqub ke 12 Bete — Yusuf Nabi bane, baaki ki nasl se Bani Israel qaum bani:</div>
+  <svg width="340" height="28" viewBox="0 0 340 28" style="display:block;overflow:visible;">
+    <line x1="170" y1="0" x2="170" y2="12" stroke="#7d3c98" stroke-width="2.5"/>
+    <line x1="55" y1="12" x2="285" y2="12" stroke="#7d3c98" stroke-width="2.5"/>
+    <line x1="55" y1="12" x2="55" y2="28" stroke="#7d3c98" stroke-width="2.5"/>
+    <line x1="285" y1="12" x2="285" y2="28" stroke="#aaa" stroke-width="2" stroke-dasharray="5,3"/>
+  </svg>
+  <div style="display:flex;gap:6px;width:340px;">
+    <div style="width:160px;background:#f4ecf7;border:2px solid #7d3c98;border-radius:8px;padding:5px 8px;text-align:center;">
+      <div style="font-size:8.5px;font-weight:900;color:#7d3c98;">✅ Yusuf — Nabi bane! ⬇️</div>
+      <div style="font-size:7px;color:#555;">10 bhai milkar bech gaye — phir bhi maaf kiya! Egypt ke Wazir bane!</div>
+    </div>
+    <div style="width:168px;background:#f8f9fa;border:2px dashed #aaa;border-radius:8px;padding:5px 8px;text-align:center;">
+      <div style="font-size:8px;font-weight:700;color:#555;">11 aur Bete (Nabi nahi):</div>
+      <div style="font-size:7px;color:#888;line-height:1.4;">Banyamin · Yahuda · Lawi · Shamoun · Ruben · Dan · Naphtali · Gad · Asher · Issachar · Zebulun</div>
+      <div style="font-size:7px;color:#7d3c98;font-weight:700;margin-top:2px;">Inki nasl = Bani Israel!</div>
+    </div>
+  </div>
+</div>
+
+<!-- Yusuf -->
+<svg width="340" height="16" viewBox="0 0 340 16" style="display:block;overflow:visible;">
+  <line x1="55" y1="0" x2="55" y2="16" stroke="#7d3c98" stroke-width="2.5"/>
+</svg>
+<div style="display:flex;justify-content:flex-start;width:340px;">
+  <div style="position:relative;display:inline-block;">
+    <div class="reading-num">10</div>
+    <div class="nb purple" style="width:210px;padding:7px 9px;">
+      <div class="badge bg-purple" style="font-size:8px;">✦ Daswain Nabi — Yaqub ke Bete</div>
+      <div class="nar" style="color:#7d3c98;font-size:17px;">يُوسُف عليه السلام</div>
+      <div class="nen" style="color:#7d3c98;font-size:12px;">Hazrat Yusuf / Joseph (AS)</div>
+      <div class="nq" style="font-size:7.5px;">🏛️ Egypt — Poori ek Surah inpar!</div>
+      <div class="nz" style="font-size:7.5px;">📖 27 baar zikr</div>
+      <div style="font-size:7.5px;color:#333;margin-top:3px;border-top:1px dashed #c9a0dc;padding-top:3px;line-height:1.6;">
+        😔 Baiyon ne bech diya Egypt mein<br>
+        🌟 Khwab ki tabeer jaante the!<br>
+        👑 Egypt ke Wazir-e-Aazam bane!<br>
+        🤝 Sab baiyon ko maaf kiya — Sabr!
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Separator + Timeline -->
+<div style="margin:8px 0;width:340px;text-align:center;">
+  <svg width="20" height="12" viewBox="0 0 20 12" style="display:block;margin:0 auto;">
+    <line x1="10" y1="0" x2="10" y2="12" stroke="#148f77" stroke-width="2.5"/>
+  </svg>
+  <div style="background:linear-gradient(135deg,#148f77,#1abc9c);color:#fff;border-radius:20px;padding:5px 16px;font-family:'Fredoka One',cursive;font-size:10px;display:inline-block;">
+    ✡️ BANI ISRAEL — Yaqub ki nasl mein Nabi aate rahe:
+  </div>
+  <svg width="20" height="10" viewBox="0 0 20 10" style="display:block;margin:0 auto;">
+    <line x1="10" y1="0" x2="10" y2="10" stroke="#148f77" stroke-width="2.5"/>
+  </svg>
+</div>
+<!-- Timeline order note -->
+<div style="background:#fffde7;border:2px solid #f5a623;border-radius:10px;padding:8px 12px;width:340px;margin-bottom:8px;font-size:8px;color:#444;line-height:1.8;">
+  <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#c8780a;margin-bottom:4px;">📅 Bani Israel mein Nabi ka Silsila — Is Order mein aaye:</div>
+  <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">
+    <span style="background:#148f77;color:#fff;font-size:7.5px;padding:2px 6px;border-radius:8px;">Yusuf</span>
+    <span style="color:#aaa;">→</span>
+    <span style="background:#148f77;color:#fff;font-size:7.5px;padding:2px 6px;border-radius:8px;">Musa + Harun<br>(Bhai)</span>
+    <span style="color:#aaa;">→</span>
+    <span style="background:#148f77;color:#fff;font-size:7.5px;padding:2px 6px;border-radius:8px;">Dawud<br>(Baap)</span>
+    <span style="color:#888;font-size:9px;">↕</span>
+    <span style="background:#148f77;color:#fff;font-size:7.5px;padding:2px 6px;border-radius:8px;">Sulaiman<br>(Beta)</span>
+    <span style="color:#aaa;">→</span>
+    <span style="background:#148f77;color:#fff;font-size:7.5px;padding:2px 6px;border-radius:8px;">Ilyas<br>(Ustad)</span>
+    <span style="color:#888;font-size:9px;">↕</span>
+    <span style="background:#148f77;color:#fff;font-size:7.5px;padding:2px 6px;border-radius:8px;">Al-Yasa<br>(Shagird)</span>
+    <span style="color:#aaa;">→</span>
+    <span style="background:#148f77;color:#fff;font-size:7.5px;padding:2px 6px;border-radius:8px;">Zakariya<br>(Baap)</span>
+    <span style="color:#888;font-size:9px;">↕</span>
+    <span style="background:#148f77;color:#fff;font-size:7.5px;padding:2px 6px;border-radius:8px;">Yahya<br>(Beta)</span>
+    <span style="color:#aaa;">→</span>
+    <span style="background:#27ae60;color:#fff;font-size:7.5px;padding:2px 6px;border-radius:8px;">Isa (AS)<br>⭐ Aakhri</span>
+  </div>
+  <div style="margin-top:4px;font-size:7.5px;color:#888;">⬆️ Yeh sab Bani Israel (Yaqub ki nasl) mein aaye — ek doosre ke seedhe bete nahi, lekin ek hi qaum ke Nabi hain!</div>
+</div>
+
+<!-- ════════ MUSA + HARUN — BHAI ════════ -->
+<div style="width:340px;background:#e8f8f5;border:2px solid #148f77;border-radius:10px;padding:6px 10px;text-align:center;margin-bottom:3px;">
+  <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#148f77;">👬 BHAI-BHAI — Musa aur Harun dono ek saath Nabi bane!</div>
+  <div style="font-size:7.5px;color:#555;">Allah ne Musa ki request par Harun ko bhi Nabi banaya — dono Egypt gaye</div>
+</div>
+<svg width="340" height="32" viewBox="0 0 340 32" style="display:block;overflow:visible;">
+  <line x1="170" y1="0" x2="170" y2="12" stroke="#148f77" stroke-width="2.5"/>
+  <line x1="88" y1="12" x2="252" y2="12" stroke="#148f77" stroke-width="2.5"/>
+  <!-- Left = Musa (solid) -->
+  <line x1="88" y1="12" x2="88" y2="32" stroke="#148f77" stroke-width="2.5"/>
+  <!-- Right = Harun (solid — bhai) -->
+  <line x1="252" y1="12" x2="252" y2="32" stroke="#148f77" stroke-width="2.5"/>
+  <text x="102" y="9" font-size="7" fill="#148f77" font-family="Nunito" font-weight="800">Bade Bhai ↙                    Chhote Bhai ↘</text>
+</svg>
+<div style="display:flex;gap:6px;width:340px;">
+  <div style="position:relative;display:inline-block;">
+    <div class="reading-num">11</div>
+    <div class="nb teal" style="width:165px;padding:7px 8px;">
+      <div class="badge bg-teal" style="font-size:8px;background:#0e7a65;">BADE BHAI — Nabi 🪄</div>
+      <div class="nar" style="color:#148f77;font-size:15px;">مُوسَى عليه السلام</div>
+      <div class="nen" style="color:#148f77;font-size:12px;">Hazrat Musa / Moses (AS)</div>
+      <div class="nq" style="font-size:7.5px;">🏛️ Egypt — <strong>136 baar!</strong> Sabse Zyada!</div>
+      <div style="font-size:7.5px;color:#333;margin-top:3px;border-top:1px dashed #7fb3a8;padding-top:3px;line-height:1.65;">
+        🗣️ <strong>Kalimullah</strong> — Allah se seedha baat ki!<br>
+        🌊 Samandar 2 hisson mein cheera!<br>
+        🪄 Laathi Saanp bani — Mujiza!<br>
+        📜 Taurat (Torah) laaye<br>
+        ⚗️ Bani Israel ko ghulami se chhudaya<br>
+        👴 Fir'aun (Pharaoh) se takra gaye!<br>
+        💡 Moses = Bible mein
+      </div>
+    </div>
+  </div>
+  <div style="position:relative;display:inline-block;">
+    <div class="reading-num">12</div>
+    <div class="nb teal" style="width:165px;padding:7px 8px;">
+      <div class="badge bg-teal" style="font-size:8px;background:#0e7a65;">CHHOTE BHAI — Nabi</div>
+      <div class="nar" style="color:#148f77;font-size:15px;">هَارُون عليه السلام</div>
+      <div class="nen" style="color:#148f77;font-size:12px;">Hazrat Harun / Aaron (AS)</div>
+      <div class="nq" style="font-size:7.5px;">🏛️ Egypt — 20 baar Quran mein</div>
+      <div style="font-size:7.5px;color:#333;margin-top:3px;border-top:1px dashed #7fb3a8;padding-top:3px;line-height:1.65;">
+        🤝 Musa ke <strong>Chhote Bhai</strong> hain!<br>
+        🗣️ Zyada saaf bol sakte the<br>
+        ✅ Musa ne kaha: "Mujhe sahayak chahiye"<br>
+        ✅ Allah ne Harun ko bhi Nabi banaya!<br>
+        🏛️ Bani Israel ke leader bhi rahe<br>
+        💡 Aaron = Bible mein
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ DAWUD + SULAIMAN — BAAP BETA ════════ -->
+<div style="margin-top:6px;width:340px;">
+  <!-- Context note: where do Dawud+Sulaiman come from -->
+  <div style="background:#f0fff8;border:2px dashed #148f77;border-radius:8px;padding:5px 10px;width:340px;text-align:center;margin-bottom:4px;font-size:8px;color:#555;font-weight:700;">
+    ⬆️ <strong>Yeh Bani Israel ki nasl mein aaye</strong> — Musa (AS) ke baad Bani Israel mein Allah ne aur Nabi bheje<br>
+    <span style="font-size:7.5px;color:#888;">Dawud, Musa ke seedhe bete nahi — woh baad ki nasl mein aaye</span>
+  </div>
+  <svg width="20" height="10" viewBox="0 0 20 10" style="display:block;margin:0 auto;">
+    <line x1="10" y1="0" x2="10" y2="10" stroke="#148f77" stroke-width="2.5"/>
+  </svg>
+  <div style="width:340px;background:#e8f8f5;border:2px solid #148f77;border-radius:10px;padding:6px 10px;text-align:center;margin-bottom:3px;">
+    <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#148f77;">👨‍👦 BAAP aur BETA — Dawud Nabi the, inke ghar Sulaiman paida hue — woh bhi Nabi bane!</div>
+    <div style="font-size:7.5px;color:#555;">Dono Jerusalem ke Badshah bhi the</div>
+  </div>
+  <svg width="340" height="36" viewBox="0 0 340 36" style="display:block;overflow:visible;">
+    <line x1="170" y1="0" x2="170" y2="12" stroke="#148f77" stroke-width="2"/>
+    <line x1="88" y1="12" x2="252" y2="12" stroke="#148f77" stroke-width="2"/>
+    <line x1="88" y1="12" x2="88" y2="36" stroke="#148f77" stroke-width="2"/>
+    <line x1="252" y1="12" x2="252" y2="36" stroke="#148f77" stroke-width="2"/>
+    <text x="112" y="9" font-size="7" fill="#148f77" font-family="Nunito" font-weight="800">BAAP ↙                               BETA ↘</text>
+  </svg>
+  <div style="display:flex;gap:6px;width:340px;">
+    <div style="position:relative;display:inline-block;">
+      <div class="reading-num">13</div>
+      <div class="nb teal" style="width:165px;padding:7px 8px;">
+        <div class="badge bg-teal" style="font-size:8px;background:#0e7a65;">BAAP — Nabi + Badshah 👑</div>
+        <div class="nar" style="color:#148f77;font-size:14px;">دَاوُد عليه السلام</div>
+        <div class="nen" style="color:#148f77;font-size:11.5px;">Hazrat Dawud / David (AS)</div>
+        <div class="nq" style="font-size:7px;">🏛️ Jerusalem · 16 baar</div>
+        <div style="font-size:7px;color:#333;margin-top:3px;border-top:1px dashed #7fb3a8;padding-top:3px;line-height:1.65;">
+          📖 Zabur (Psalms) laaye<br>
+          ⚔️ Jalut (Goliath) ko ek pathar se mara!<br>
+          🛡️ Lohe ki zireh (armor) banate<br>
+          🎵 Itni meethi awaaz — parinde bhi saath gaate<br>
+          👑 Israel ke Badshah bhi the<br>
+          💡 David = Bible mein
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;display:inline-block;">
+      <div class="reading-num">14</div>
+      <div class="nb teal" style="width:165px;padding:7px 8px;">
+        <div class="badge bg-teal" style="font-size:8px;background:#0e7a65;">BETA — Nabi + Badshah 👑</div>
+        <div class="nar" style="color:#148f77;font-size:14px;">سُلَيْمَان عليه السلام</div>
+        <div class="nen" style="color:#148f77;font-size:11.5px;">Hazrat Sulaiman / Solomon (AS)</div>
+        <div class="nq" style="font-size:7px;">🏛️ Jerusalem · 17 baar</div>
+        <div style="font-size:7px;color:#333;margin-top:3px;border-top:1px dashed #7fb3a8;padding-top:3px;line-height:1.65;">
+          🧞 Jinnat par hukm chalate the!<br>
+          🐦 Parindoon ki boli samajhte<br>
+          💨 Hawa par sawari karte<br>
+          👸 Malka Bilqees se baat ki<br>
+          🏛️ Baitul Muqaddas banaya<br>
+          💡 Solomon = Bible mein
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ ILYAS + AL-YASA — USTAD SHAGIRD ════════ -->
+<div style="margin-top:6px;width:340px;">
+  <div style="background:#f0fff8;border:2px dashed #148f77;border-radius:8px;padding:5px 10px;width:340px;text-align:center;margin-bottom:4px;font-size:8px;color:#555;font-weight:700;">
+    ⬆️ <strong>Yeh bhi Bani Israel mein aaye</strong> — Sulaiman ke baad Bani Israel mein aur Nabi aaye<br>
+    <span style="font-size:7.5px;color:#888;">Ilyas, Sulaiman ke seedhe beta nahi — Bani Israel ki baad ki nasl hain</span>
+  </div>
+  <svg width="20" height="10" viewBox="0 0 20 10" style="display:block;margin:0 auto;">
+    <line x1="10" y1="0" x2="10" y2="10" stroke="#148f77" stroke-width="2.5"/>
+  </svg>
+  <div style="width:340px;background:#e8f8f5;border:2px solid #148f77;border-radius:10px;padding:6px 10px;text-align:center;margin-bottom:3px;">
+    <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#148f77;">👨‍🏫 USTAD aur SHAGIRD — Ilyas ke Student Al-Yasa the — Ilyas ke jaane ke baad Nabi bane!</div>
+    <div style="font-size:7.5px;color:#555;">Dotted line = Shagird (Student) — seedha beta nahi</div>
+  </div>
+  <svg width="340" height="36" viewBox="0 0 340 36" style="display:block;overflow:visible;">
+    <line x1="170" y1="0" x2="170" y2="12" stroke="#148f77" stroke-width="2"/>
+    <line x1="88" y1="12" x2="252" y2="12" stroke="#148f77" stroke-width="2"/>
+    <!-- Ilyas solid -->
+    <line x1="88" y1="12" x2="88" y2="36" stroke="#148f77" stroke-width="2"/>
+    <!-- Al-Yasa DOTTED — shagird, not beta -->
+    <line x1="252" y1="12" x2="252" y2="36" stroke="#148f77" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="100" y="9" font-size="7" fill="#148f77" font-family="Nunito" font-weight="800">USTAD ↙          - - SHAGIRD ↘ (dotted)</text>
+  </svg>
+  <div style="display:flex;gap:6px;width:340px;">
+    <div style="position:relative;display:inline-block;">
+      <div class="reading-num">15</div>
+      <div class="nb teal" style="width:165px;padding:7px 8px;">
+        <div class="badge bg-teal" style="font-size:8px;background:#0e7a65;">USTAD — Nabi 📚</div>
+        <div class="nar" style="color:#148f77;font-size:14px;">إِلْيَاس عليه السلام</div>
+        <div class="nen" style="color:#148f77;font-size:11.5px;">Hazrat Ilyas / Elijah (AS)</div>
+        <div class="nq" style="font-size:7px;">🏙️ Samaria · 2 baar</div>
+        <div style="font-size:7px;color:#333;margin-top:3px;border-top:1px dashed #7fb3a8;padding-top:3px;line-height:1.65;">
+          🔥 Buton (Idols) ki ibadat rokne aaye<br>
+          ⚡ Allah se aag mangwa ke dikhaya<br>
+          🌧️ 3 saal barish band karwa di!<br>
+          🕊️ Asmaan par uthaye gaye<br>
+          💡 Elijah = Bible mein
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;display:inline-block;">
+      <div class="reading-num">16</div>
+      <div class="nb teal" style="width:165px;padding:7px 8px;">
+        <div class="badge bg-teal" style="font-size:8px;background:#0e7a65;">SHAGIRD — Nabi 📚</div>
+        <div class="nar" style="color:#148f77;font-size:14px;">الْيَسَع عليه السلام</div>
+        <div class="nen" style="color:#148f77;font-size:11.5px;">Hazrat Al-Yasa / Elisha (AS)</div>
+        <div class="nq" style="font-size:7px;">🏙️ Samaria · 2 baar</div>
+        <div style="font-size:7px;color:#333;margin-top:3px;border-top:1px dashed #7fb3a8;padding-top:3px;line-height:1.65;">
+          🤝 Ilyas ke <strong>seedhe Shagird</strong><br>
+          ⚠️ Beta nahi — Student the!<br>
+          ✨ Ilyas ke jaane ke baad Nabi bane<br>
+          🔗 Isliye line dotted hai<br>
+          💡 Elisha = Bible mein
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ ZAKARIYA + YAHYA — BAAP BETA ════════ -->
+<div style="margin-top:6px;width:340px;">
+  <div style="background:#f0fff8;border:2px dashed #148f77;border-radius:8px;padding:5px 10px;width:340px;text-align:center;margin-bottom:4px;font-size:8px;color:#555;font-weight:700;">
+    ⬆️ <strong>Yeh bhi Bani Israel mein aaye</strong> — Ilyas ke baad Bani Israel mein aur Nabi aate rahe<br>
+    <span style="font-size:7.5px;color:#888;">Zakariya, Al-Yasa ke seedhe baad Bani Israel ke Nabi hain</span>
+  </div>
+  <svg width="20" height="10" viewBox="0 0 20 10" style="display:block;margin:0 auto;">
+    <line x1="10" y1="0" x2="10" y2="10" stroke="#148f77" stroke-width="2.5"/>
+  </svg>
+  <div style="width:340px;background:#e8f8f5;border:2px solid #148f77;border-radius:10px;padding:6px 10px;text-align:center;margin-bottom:3px;">
+    <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#148f77;">👨‍👦 BAAP aur BETA — Zakariya ne dua maangi, Allah ne budhape mein beta diya — dono Nabi!</div>
+    <div style="font-size:7.5px;color:#555;">Dono Jerusalem mein Baitul Muqaddas se jude the</div>
+  </div>
+  <svg width="340" height="36" viewBox="0 0 340 36" style="display:block;overflow:visible;">
+    <line x1="170" y1="0" x2="170" y2="12" stroke="#148f77" stroke-width="2"/>
+    <line x1="88" y1="12" x2="252" y2="12" stroke="#148f77" stroke-width="2"/>
+    <line x1="88" y1="12" x2="88" y2="36" stroke="#148f77" stroke-width="2"/>
+    <line x1="252" y1="12" x2="252" y2="36" stroke="#148f77" stroke-width="2"/>
+    <text x="112" y="9" font-size="7" fill="#148f77" font-family="Nunito" font-weight="800">BAAP ↙                               BETA ↘</text>
+  </svg>
+  <div style="display:flex;gap:6px;width:340px;">
+    <div style="position:relative;display:inline-block;">
+      <div class="reading-num">17</div>
+      <div class="nb teal" style="width:165px;padding:7px 8px;">
+        <div class="badge bg-teal" style="font-size:8px;background:#0e7a65;">BAAP — Nabi 🙏</div>
+        <div class="nar" style="color:#148f77;font-size:14px;">زَكَرِيَّا عليه السلام</div>
+        <div class="nen" style="color:#148f77;font-size:11.5px;">Hazrat Zakariya / Zechariah (AS)</div>
+        <div class="nq" style="font-size:7px;">🏛️ Jerusalem · 7 baar</div>
+        <div style="font-size:7px;color:#333;margin-top:3px;border-top:1px dashed #7fb3a8;padding-top:3px;line-height:1.65;">
+          🏛️ Baitul Muqaddas ke Imam<br>
+          👧 Maryam (AS) ki dekhbhaal ki<br>
+          👴 Budhape mein bete ki dua maangi<br>
+          🤲 Allah ne qubool kiya — Mujiza!<br>
+          💡 Zechariah = Bible mein
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;display:inline-block;">
+      <div class="reading-num">18</div>
+      <div class="nb teal" style="width:165px;padding:7px 8px;">
+        <div class="badge bg-teal" style="font-size:8px;background:#0e7a65;">BETA — Nabi 🙏</div>
+        <div class="nar" style="color:#148f77;font-size:14px;">يَحْيَى عليه السلام</div>
+        <div class="nen" style="color:#148f77;font-size:11.5px;">Hazrat Yahya / John (AS)</div>
+        <div class="nq" style="font-size:7px;">🏛️ Jerusalem · 5 baar</div>
+        <div style="font-size:7px;color:#333;margin-top:3px;border-top:1px dashed #7fb3a8;padding-top:3px;line-height:1.65;">
+          👶 <strong>Budhape ki aulad — Mujiza!</strong><br>
+          🧒 Bachpan hi mein Nabi bane!<br>
+          ✋ Logon ko gunah se roka<br>
+          💧 Paani mein ghol ke ibadat sikhaya<br>
+          💡 John the Baptist = Bible mein
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ ISA ════════ -->
+<div style="margin-top:6px;width:340px;">
+  <!-- Maryam connection -->
+  <div style="background:#f0fff8;border:2px dashed #27ae60;border-radius:8px;padding:5px 10px;width:340px;text-align:center;margin-bottom:4px;font-size:8px;color:#444;font-weight:700;">
+    ⬆️ <strong>Maryam kaun thi?</strong><br>
+    <span style="font-size:7.5px;color:#555;">Maryam = Hazrat Isa ki Walida (Mother)<br>
+    Maryam ko <strong>Hazrat Zakariya</strong> (upar waale Nabi) paalte the — Baitul Muqaddas mein<br>
+    Maryam ke ghar <strong>Bina Baap ke</strong> Isa (AS) paida hue — Allah ka Khaas Mujiza!</span>
+  </div>
+  <svg width="20" height="10" viewBox="0 0 20 10" style="display:block;margin:0 auto;">
+    <line x1="10" y1="0" x2="10" y2="10" stroke="#27ae60" stroke-width="2.5"/>
+  </svg>
+  <div style="width:340px;background:#eafaf1;border:2px solid #27ae60;border-radius:10px;padding:6px 10px;text-align:center;margin-bottom:3px;">
+    <div style="font-family:'Fredoka One',cursive;font-size:10px;color:#27ae60;">🕊️ Hazrat Isa — Maryam ke bete — Koi Walid (Baap) nahi — Seedha Allah ka Mujiza!</div>
+    <div style="font-size:7.5px;color:#555;">Zakariya ki dekhbhaal mein pali Maryam ke ghar paida hue</div>
+  </div>
+  <svg width="20" height="12" viewBox="0 0 20 12" style="display:block;margin:0 auto;">
+    <line x1="10" y1="0" x2="10" y2="12" stroke="#27ae60" stroke-width="2.5"/>
+  </svg>
+  <div style="position:relative;display:inline-block;">
+    <div class="reading-num">19</div>
+    <div class="nb green" style="width:340px;">
+      <div class="badge bg-green" style="font-size:10px;">✦ Nabi ✝️ — Maryam ke Bete (Baap nahi!)</div>
+      <div class="nar" style="color:#27ae60;font-size:21px;">عِيسَى عليه السلام</div>
+      <div class="nen" style="color:#27ae60;font-size:14px;">Hazrat Isa / Jesus (AS)</div>
+      <div class="nq" style="font-size:8.5px;">🕊️ Bani Israel — Palestine</div>
+      <div class="nz" style="font-size:8px;">📖 Quran mein 25 baar — Injeel (Gospel) laaye</div>
+      <div style="font-size:8px;color:#333;margin-top:5px;border-top:1px dashed #a0d9b0;padding-top:5px;line-height:1.7;">
+        🌟 <strong>Unke Mujaazat (Miracles):</strong><br>
+        🍼 Palne mein baat ki — baby the tab bhi!<br>
+        🧑‍⚕️ Andhe ko aankh di — bimaron ko theek kiya<br>
+        💀 Murdon ko <strong>Allah ke hukm se</strong> zinda kiya!<br>
+        🐦 Mitti ki chiriya banayi — ud gayi!<br>
+        ☁️ Asmaan par uthaye gaye — wafaat nahi hui!<br>
+        🌍 <strong>Qayamat se pehle wapas aayenge!</strong>
+      </div>
+    </div>
+  </div>
+  <div style="background:#eafaf1;border:2px solid #27ae60;border-radius:8px;padding:6px 10px;width:340px;margin-top:5px;font-size:8px;color:#333;line-height:1.6;">
+    💡 <strong>Non-Muslims ke liye:</strong><br>
+    Hazrat Isa = Jesus Christ — Islam aur Christianity dono maante hain!<br>
+    ✅ Islam maanta hai: Isa paida hue, Mujize kiye, asmaan par hain<br>
+    ❌ Islam nahi maanta: Woh God ke bete ya Khuda hain<br>
+    🤝 Sirf maqam alag — shakhsiyat ek hi hai!
+  </div>
+</div>
+
+<!-- ════════ 4 ALAG NABI ════════ -->
+<div style="margin-top:6px;width:340px;">
+  <div style="background:#f0fff8;border:2px dashed #e67e22;border-radius:8px;padding:5px 10px;width:340px;text-align:center;margin-bottom:4px;font-size:8px;color:#444;font-weight:700;">
+    ℹ️ <strong>Yeh 4 Nabi Bani Israel ki nasl se nahi hain</strong><br>
+    <span style="font-size:7.5px;color:#555;">Yeh Ayyub, Shuayb, Yunus, Dhul-Kifl — Ibrahim ke daur ke hain<br>
+    Inhe alag alag jagahon par bheja gaya — Bani Israel ke saath seedha rishta nahi</span>
+  </div>
+  <svg width="20" height="10" viewBox="0 0 20 10" style="display:block;margin:0 auto;">
+    <line x1="10" y1="0" x2="10" y2="10" stroke="#e67e22" stroke-width="2" stroke-dasharray="5,3"/>
+  </svg>
+  <div style="background:linear-gradient(135deg,#e67e22,#f39c12);color:#fff;border-radius:20px;padding:5px 16px;font-family:'Fredoka One',cursive;font-size:10px;text-align:center;margin-bottom:5px;">
+    🌟 Is hi daur ke 4 aur Nabi — Alag jagahon par bheje gaye — inki apni alag stories:
+  </div>
+  <svg width="20" height="8" viewBox="0 0 20 8" style="display:block;margin:0 auto;">
+    <line x1="10" y1="0" x2="10" y2="8" stroke="#e67e22" stroke-width="2"/>
+  </svg>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;width:340px;">
+    <div style="position:relative;">
+      <div class="reading-num">20</div>
+      <div class="nb orange" style="min-width:unset;max-width:unset;padding:7px 8px;">
+        <div class="badge bg-orange" style="font-size:7.5px;">Nabi — AKELE bheje 💪</div>
+        <div class="nar" style="color:#e67e22;font-size:14px;">أَيُّوب عليه السلام</div>
+        <div class="nen" style="color:#e67e22;font-size:11px;">Hazrat Ayyub / Job (AS)</div>
+        <div class="nq" style="font-size:7.5px;">🏔️ Edom (Jordan) · 4 baar</div>
+        <div style="font-size:7.5px;color:#333;margin-top:3px;border-top:1px dashed #e6a96b;padding-top:3px;line-height:1.65;">
+          💪 <strong>Sabr ki Zinda Misaal!</strong><br>
+          🤒 Saalon tak takleef — bimari<br>
+          💰 Daulat + ghar sab gaya<br>
+          🤲 Phir bhi shukr kiya!<br>
+          ✨ Allah ne sab 2 guna wapas diya!<br>
+          💡 Job = Bible mein
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;">
+      <div class="reading-num">21</div>
+      <div class="nb orange" style="min-width:unset;max-width:unset;padding:7px 8px;">
+        <div class="badge bg-orange" style="font-size:7.5px;">Nabi — AKELE bheje ⚖️</div>
+        <div class="nar" style="color:#e67e22;font-size:14px;">شُعَيْب عليه السلام</div>
+        <div class="nen" style="color:#e67e22;font-size:11px;">Hazrat Shuayb / Jethro (AS)</div>
+        <div class="nq" style="font-size:7.5px;">🏔️ Madyan (Arab) · 9 baar</div>
+        <div style="font-size:7.5px;color:#333;margin-top:3px;border-top:1px dashed #e6a96b;padding-top:3px;line-height:1.65;">
+          ⚖️ <strong>Business imaandaari!</strong><br>
+          🛒 Timbang sahi rakhne ki talqeen<br>
+          🚫 Dhoka dena haram<br>
+          😤 Qaum nahi maani<br>
+          💥 Azaab aaya — Qaum tabah!<br>
+          💡 Jethro = Bible mein
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;">
+      <div class="reading-num">22</div>
+      <div class="nb orange" style="min-width:unset;max-width:unset;padding:7px 8px;">
+        <div class="badge bg-orange" style="font-size:7.5px;">Nabi — AKELE bheje 🐋</div>
+        <div class="nar" style="color:#e67e22;font-size:14px;">يُونُس عليه السلام</div>
+        <div class="nen" style="color:#e67e22;font-size:11px;">Hazrat Yunus / Jonah (AS)</div>
+        <div class="nq" style="font-size:7.5px;">🏙️ Ninevah (Iraq) · 4 baar</div>
+        <div style="font-size:7.5px;color:#333;margin-top:3px;border-top:1px dashed #e6a96b;padding-top:3px;line-height:1.65;">
+          😤 Qaum se naraaz — chale gaye<br>
+          🚢 Kashti mein baith ke nikle<br>
+          🐋 <strong>Whale ne nigal liya!</strong><br>
+          ⏱️ 40 din andheron mein<br>
+          🤲 Dua: <em>"La ilaha illa anta..."</em><br>
+          ✨ Qaum maani — sab theek!<br>
+          💡 Jonah = Bible mein
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;">
+      <div class="reading-num">23</div>
+      <div class="nb orange" style="min-width:unset;max-width:unset;padding:7px 8px;">
+        <div class="badge bg-orange" style="font-size:7.5px;">Nabi — AKELE bheje 🕊️</div>
+        <div class="nar" style="color:#e67e22;font-size:14px;">ذُو الْكِفْل عليه السلام</div>
+        <div class="nen" style="color:#e67e22;font-size:11px;">Hazrat Dhul-Kifl (AS)</div>
+        <div class="nq" style="font-size:7.5px;">🏙️ Babylon (Iraq) · 2 baar</div>
+        <div style="font-size:7.5px;color:#333;margin-top:3px;border-top:1px dashed #e6a96b;padding-top:3px;line-height:1.65;">
+          🕊️ <strong>Sabr wale Nabi!</strong><br>
+          🤝 Zimmedaari uthayi — wada nibhaya<br>
+          😤 Logon ne bahut takleef di<br>
+          💪 Phir bhi sabr + maafi<br>
+          🌟 Quran mein salihin mein<br>
+          💡 Ezekiel ho sakte hain
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  <!-- ═══ RIGHT COL: LUT (BHATIJA) ═══ -->
+
+  <td style="width:260px;padding:0 0 0 8px;vertical-align:top;">
+    <div style="display:flex;flex-direction:column;align-items:center;padding-top:30px;">
+    <div style="background:#fef3e2;border:2px dashed #e67e22;border-radius:10px;padding:6px 8px;width:230px;text-align:center;font-size:8px;margin-bottom:6px;font-weight:700;">
+      ⚠️ <strong>Dhyan do!</strong><br>
+      Hazrat Lut, Ibrahim ke <strong>BHATIJE</strong> (Nephew) the!<br>
+      Seedhe BETE nahi the!<br>
+      <span style="font-size:7.5px;color:#888;">Isliye line dotted ( - - - ) hai!</span>
+    </div>
+    <div style="position:relative;display:inline-block;">
+      <div class="reading-num">—</div>
+      <div class="nb orange" style="width:230px;">
+        <div class="badge bg-orange">Nabi — Ibrahim ke Bhatije (Nephew)</div>
+        <div class="nar" style="color:#e67e22;font-size:18px;">لُوط عليه السلام</div>
+        <div class="nen" style="color:#e67e22;font-size:14px;">Hazrat Lut / Lot (AS)</div>
+        <div class="nq" style="font-size:8px;">🏙️ Sodom & Gomorrah mein bheje gaye</div>
+        <div class="nz" style="font-size:8px;">📖 Quran mein 27 baar</div>
+        <div class="nk" style="font-size:7.5px;">✨ Buri qaum ko samjhaya — Puri sheher tabah ho gayi!</div>
+      </div>
+    </div>
+    <div class="explain" style="border-color:#e67e22;background:#fef3e2;font-size:7.5px;width:230px;max-width:230px;margin-top:6px;">
+      💡 Non-Muslims: Lut = "Lot" in Bible — Sodom & Gomorrah story!
+    </div>
+    </div>
+  </td>
+
+</tr>
+</table>
+
+<!-- ════════════════════════════════════════════ -->
+
+<!--  BOTH PATHS MEET HERE → MUHAMMAD ﷺ         -->
+
+<!-- ════════════════════════════════════════════ -->
+
+<div style="width:950px;position:relative;height:60px;margin:0 auto;">
+  <svg width="950" height="60" viewBox="0 0 950 60" style="display:block;overflow:visible;position:absolute;top:0;left:0;">
+    <!-- Left branch line comes down from x=145 (center of 290px left column) -->
+    <line x1="145" y1="0" x2="145" y2="28" stroke="#c8780a" stroke-width="3"/>
+    <!-- Right branch line comes down from x=490 (290 + center of 400px = 290+200=490) -->
+    <line x1="490" y1="0" x2="490" y2="28" stroke="#7d3c98" stroke-width="2.5" stroke-dasharray="7,4"/>
+    <!-- Horizontal connector -->
+    <line x1="145" y1="28" x2="490" y2="28" stroke="#c8780a" stroke-width="3"/>
+    <!-- Drop to center — center of poster = 475 -->
+    <line x1="317" y1="28" x2="317" y2="60" stroke="#c8780a" stroke-width="4"/>
+    <polygon points="310,55 317,62 324,55" fill="#c8780a"/>
+    <!-- Labels -->
+    <text x="14" y="18" font-size="9" fill="#c8780a" font-family="Nunito" font-weight="900">🌙 Arab Shaakh ——</text>
+    <text x="500" y="18" font-size="9" fill="#7d3c98" font-family="Nunito" font-weight="900">- - 💜 Bani Israel Shaakh</text>
+    <text x="200" y="46" font-size="9.5" fill="#c8780a" font-family="Nunito" font-weight="900">⬇ DONO RAASTE YAHAN MILTE HAIN ⬇</text>
+  </svg>
+</div>
+
+<!-- ════ MUHAMMAD ﷺ — BILKUL NEECHE CENTER ════ -->
+
+<div style="position:relative;display:inline-block;margin-top:24px;margin-bottom:0;">
+  <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#e74c3c;color:#fff;font-family:'Fredoka One',cursive;font-size:12px;padding:3px 18px;border-radius:20px;white-space:nowrap;box-shadow:0 3px 10px rgba(231,76,60,0.4);">
+    🏁 READING PATH KA AAKHRI STOP — THE END!
+  </div>
+  <div class="nb final" style="min-width:380px;padding:14px 18px;">
+    <div class="badge bg-goldd" style="font-size:13px;padding:4px 20px;">㉕ KHATAM-UN-NABIYYIN — AAKHRI NABI ﷺ 🌟</div>
+    <div class="nar" style="color:#b8860b;font-size:34px;margin-top:6px;letter-spacing:2px;">مُحَمَّد ﷺ</div>
+    <div class="nen" style="color:#c8780a;font-size:24px;">Hazrat Muhammad ﷺ</div>
+    <div class="nq" style="font-size:10.5px;">🌍 Poori Duniya ke liye bheje gaye — Arab aur Ajam, sab ke liye!</div>
+    <div class="nz" style="font-size:9.5px;">📖 Quran mein naam se: Ahmad (61:6) · Muhammad (3:144, 33:40, 47:2, 48:29)</div>
+    <div class="nk" style="font-size:9px;">✨ Rahmatan lil Alameen · Quran laaye · <strong>INKE BAAD KOI NABI NAHI AAYEGA — QAYAMAT TAK!</strong></div>
+  </div>
+  <div style="background:#1a6ea8;color:#fff;padding:5px 12px;text-align:center;font-size:9px;font-weight:800;border-radius:0 0 10px 10px;letter-spacing:1px;">
+    ✅ SILSILA-E-NUBUWWAT MUKAMMAL HUA — THE CHAIN OF PROPHETHOOD IS COMPLETE ✅
+  </div>
+</div>
+
+</div><!-- end col -->
+</div><!-- end tree -->
+
+<!-- RIGHT PANEL: 99 Names -->
+
+<div class="rpanel">
+  <div class="ph">☪️ Allah Ke 99 Naam (Names of God)</div>
+  <div style="font-family:'Scheherazade New',serif;font-size:14px;color:#148f77;text-align:center;margin-bottom:5px;direction:rtl;">أَسْمَاءُ اللَّهِ الْحُسْنَى</div>
+  <div class="two-col" id="asmaList"></div>
+</div>
+
+</div><!-- end layout -->
+
+<!-- FOOTER -->
+
+<div class="footer">
+  <div class="fc">
+    <div class="ft">🤲 Islamic Prayers (Duas)</div>
+    <div class="dua"><div class="duar">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً</div><div class="duat">O Lord! Give us good in this world and good in the Hereafter — Quran 2:201</div></div>
+    <div class="dua"><div class="duar">رَبِّ زِدْنِي عِلْمًا</div><div class="duat">O Lord! Increase me in knowledge — Quran 20:114</div></div>
+    <div class="dua"><div class="duar">إِنَّ مَعَ الْعُسْرِ يُسْرًا</div><div class="duat">Verily with hardship comes ease — Quran 94:6</div></div>
+  </div>
+  <div class="fc">
+    <div class="ft">📚 Quick Facts</div>
+    <div class="fact"><div class="fq">📌 Solid line (———) ka matlab?</div><div class="fa">Seedha Beta (Son) ya Bhai (Brother)</div></div>
+    <div class="fact"><div class="fq">📌 Dotted line (- - -) ka matlab?</div><div class="fa">Bhatija (Nephew) ya Shagird (Student) — Beta nahi!</div></div>
+    <div class="fact"><div class="fq">⭐ Sabse Zyada Mentioned Nabi?</div><div class="fa">Hazrat Musa (Moses) — 136 baar Quran mein!</div></div>
+    <div class="fact"><div class="fq">⭐ Kul Kitne Nabi the?</div><div class="fa">Hadees: 1,24,000 — Quran mein 25 ke naam hain</div></div>
+    <div class="fact"><div class="fq">⭐ 4 Holy Books (Asmani Kitabein)?</div><div class="fa">Torah (Musa) · Zabur (Dawud) · Gospel (Isa) · Quran (Muhammad ﷺ)</div></div>
+  </div>
+  <div class="fc">
+    <div class="ft">🎨 Color Guide</div>
+    <div style="font-size:8.5px;">
+      <div class="fact"><div style="display:flex;align-items:center;gap:5px;"><div style="width:12px;height:12px;background:#fff8e1;border:2px solid #f5a623;border-radius:3px;flex-shrink:0;"></div><div class="fa">🟡 Sona = Sabse Khaas (Adam, Ibrahim, Muhammad ﷺ)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:5px;"><div style="width:12px;height:12px;background:#eafaf1;border:2px solid #27ae60;border-radius:3px;flex-shrink:0;"></div><div class="fa">🟢 Hara = Arab Nasl + Pehle Nabi + Isa (AS)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:5px;"><div style="width:12px;height:12px;background:#d6eaf8;border:2px solid #2471a3;border-radius:3px;flex-shrink:0;"></div><div class="fa">🔵 Neela = Pehle Zamane ke Nabi (Idris, Hud, Saleh)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:5px;"><div style="width:12px;height:12px;background:#f4ecf7;border:2px solid #7d3c98;border-radius:3px;flex-shrink:0;"></div><div class="fa">🟣 Bunafsha = Bani Israel Shaakh (Ishaq, Yaqub)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:5px;"><div style="width:12px;height:12px;background:#d1f2eb;border:2px solid #148f77;border-radius:3px;flex-shrink:0;"></div><div class="fa">🩵 Ferozi = Bani Israel Nabi (Musa, Dawud, Isa...)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:5px;"><div style="width:12px;height:12px;background:#fef3e2;border:2px solid #e67e22;border-radius:3px;flex-shrink:0;"></div><div class="fa">🟠 Narangi = Alag Jagah ke Nabi + Lut (Bhatija)</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:5px;"><div style="width:12px;height:12px;background:#f2f3f4;border:2px dashed #aaa;border-radius:3px;flex-shrink:0;"></div><div class="fa">⬜ Grey box = Nabi nahi — Purkha (Ancestor)/Beta</div></div></div>
+      <div class="fact"><div style="display:flex;align-items:center;gap:5px;"><div style="width:12px;height:12px;background:#e74c3c;border-radius:50%;flex-shrink:0;"></div><div class="fa">🔴 Red circle = Reading order (1,2,3...)</div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="brand">☪ ISLAMIC PROPHETS FAMILY TREE — Tamam Nabiyyon par Darood o Salaam ☪</div>
+</div><!-- end poster -->
+
+<script>
+// 114 SURAHS
+const surahs=[[1,"Al-Fatiha","الْفَاتِحَة","M"],[2,"Al-Baqarah","الْبَقَرَة","MD"],[3,"Al-Imran","آلِ عِمْرَان","MD"],[4,"An-Nisa","النِّسَاء","MD"],[5,"Al-Maidah","الْمَائِدَة","MD"],[6,"Al-An'am","الْأَنْعَام","M"],[7,"Al-A'raf","الْأَعْرَاف","M"],[8,"Al-Anfal","الْأَنْفَال","MD"],[9,"At-Tawbah","التَّوْبَة","MD"],[10,"Yunus","يُونُس","M"],[11,"Hud","هُود","M"],[12,"Yusuf","يُوسُف","M"],[13,"Ar-Ra'd","الرَّعْد","MD"],[14,"Ibrahim","إِبْرَاهِيم","M"],[15,"Al-Hijr","الْحِجْر","M"],[16,"An-Nahl","النَّحْل","M"],[17,"Al-Isra","الْإِسْرَاء","M"],[18,"Al-Kahf","الْكَهْف","M"],[19,"Maryam","مَرْيَم","M"],[20,"Ta-Ha","طه","M"],[21,"Al-Anbiya","الْأَنْبِيَاء","M"],[22,"Al-Hajj","الْحَجّ","MD"],[23,"Al-Mu'minun","الْمُؤْمِنُون","M"],[24,"An-Nur","النُّور","MD"],[25,"Al-Furqan","الْفُرْقَان","M"],[26,"Ash-Shu'ara","الشُّعَرَاء","M"],[27,"An-Naml","النَّمْل","M"],[28,"Al-Qasas","الْقَصَص","M"],[29,"Al-Ankabut","الْعَنْكَبُوت","M"],[30,"Ar-Rum","الرُّوم","M"],[31,"Luqman","لُقْمَان","M"],[32,"As-Sajda","السَّجْدَة","M"],[33,"Al-Ahzab","الْأَحْزَاب","MD"],[34,"Saba","سَبَأ","M"],[35,"Fatir","فَاطِر","M"],[36,"Ya Sin","يس","M"],[37,"As-Saffat","الصَّافَّات","M"],[38,"Sad","ص","M"],[39,"Az-Zumar","الزُّمَر","M"],[40,"Ghafir","غَافِر","M"],[41,"Fussilat","فُصِّلَت","M"],[42,"Ash-Shura","الشُّورَى","M"],[43,"Az-Zukhruf","الزُّخْرُف","M"],[44,"Ad-Dukhan","الدُّخَان","M"],[45,"Al-Jathiyah","الْجَاثِيَة","M"],[46,"Al-Ahqaf","الْأَحْقَاف","M"],[47,"Muhammad","مُحَمَّد","MD"],[48,"Al-Fath","الْفَتْح","MD"],[49,"Al-Hujurat","الْحُجُرَات","MD"],[50,"Qaf","ق","M"],[51,"Adh-Dhariyat","الذَّارِيَات","M"],[52,"At-Tur","الطُّور","M"],[53,"An-Najm","النَّجْم","M"],[54,"Al-Qamar","الْقَمَر","M"],[55,"Ar-Rahman","الرَّحْمَن","MD"],[56,"Al-Waqi'a","الْوَاقِعَة","M"],[57,"Al-Hadid","الْحَدِيد","MD"],[58,"Al-Mujadila","الْمُجَادِلَة","MD"],[59,"Al-Hashr","الْحَشْر","MD"],[60,"Al-Mumtahanah","الْمُمْتَحَنَة","MD"],[61,"As-Saf","الصَّفّ","MD"],[62,"Al-Jumu'ah","الْجُمُعَة","MD"],[63,"Al-Munafiqun","الْمُنَافِقُون","MD"],[64,"At-Taghabun","التَّغَابُن","MD"],[65,"At-Talaq","الطَّلَاق","MD"],[66,"At-Tahrim","التَّحْرِيم","MD"],[67,"Al-Mulk","الْمُلْك","M"],[68,"Al-Qalam","الْقَلَم","M"],[69,"Al-Haqqah","الْحَاقَّة","M"],[70,"Al-Ma'arij","الْمَعَارِج","M"],[71,"Nuh","نُوح","M"],[72,"Al-Jinn","الْجِنّ","M"],[73,"Al-Muzzammil","الْمُزَّمِّل","M"],[74,"Al-Muddaththir","الْمُدَّثِّر","M"],[75,"Al-Qiyamah","الْقِيَامَة","M"],[76,"Al-Insan","الْإِنسَان","MD"],[77,"Al-Mursalat","الْمُرْسَلَات","M"],[78,"An-Naba","النَّبَأ","M"],[79,"An-Nazi'at","النَّازِعَات","M"],[80,"Abasa","عَبَسَ","M"],[81,"At-Takwir","التَّكْوِير","M"],[82,"Al-Infitar","الِانفِطَار","M"],[83,"Al-Mutaffifin","الْمُطَفِّفِين","M"],[84,"Al-Inshiqaq","الِانشِقَاق","M"],[85,"Al-Buruj","الْبُرُوج","M"],[86,"At-Tariq","الطَّارِق","M"],[87,"Al-A'la","الْأَعْلَى","M"],[88,"Al-Ghashiyah","الْغَاشِيَة","M"],[89,"Al-Fajr","الْفَجْر","M"],[90,"Al-Balad","الْبَلَد","M"],[91,"Ash-Shams","الشَّمْس","M"],[92,"Al-Layl","اللَّيْل","M"],[93,"Ad-Duha","الضُّحَى","M"],[94,"Ash-Sharh","الشَّرْح","M"],[95,"At-Tin","التِّين","M"],[96,"Al-Alaq","الْعَلَق","M"],[97,"Al-Qadr","الْقَدْر","M"],[98,"Al-Bayyinah","الْبَيِّنَة","MD"],[99,"Az-Zalzalah","الزَّلْزَلَة","MD"],[100,"Al-Adiyat","الْعَادِيَات","M"],[101,"Al-Qari'ah","الْقَارِعَة","M"],[102,"At-Takathur","التَّكَاثُر","M"],[103,"Al-Asr","الْعَصْر","M"],[104,"Al-Humazah","الْهُمَزَة","M"],[105,"Al-Fil","الْفِيل","M"],[106,"Quraysh","قُرَيْش","M"],[107,"Al-Ma'un","الْمَاعُون","M"],[108,"Al-Kawthar","الْكَوْثَر","M"],[109,"Al-Kafirun","الْكَافِرُون","M"],[110,"An-Nasr","النَّصْر","MD"],[111,"Al-Masad","الْمَسَد","M"],[112,"Al-Ikhlas","الْإِخْلَاص","M"],[113,"Al-Falaq","الْفَلَق","M"],[114,"An-Nas","النَّاس","M"]];
+const sl=document.getElementById('surahList');
+surahs.forEach(([n,en,ar,t])=>{
+  const d=document.createElement('div');
+  const c=t==='M'?'#27ae60':'#e74c3c';
+  d.style.cssText='padding:2px 0;border-bottom:1px solid #f0e8d0;';
+  d.innerHTML=`<div style="display:flex;gap:2px;align-items:baseline;"><span style="font-weight:900;min-width:16px;font-size:8px;color:${c};">${n}</span><span style="font-size:8px;color:#2c3e50;font-weight:700;line-height:1.2;">${en}</span></div><div style="font-family:'Scheherazade New',serif;font-size:11px;color:#b8860b;direction:rtl;text-align:right;line-height:1.1;">${ar}</div>`;
+  sl.appendChild(d);
+});
+
+// 99 NAMES
+const asma=[["اللَّه","Allah","Sabse Bada Naam"],["الرَّحْمَن","Ar-Rahman","Bahut Meherbaan"],["الرَّحِيم","Ar-Rahim","Hamesha Rehm wala"],["الْمَلِك","Al-Malik","Sachcha Badshah"],["الْقُدُّوس","Al-Quddus","Bilkul Paak"],["السَّلَام","As-Salam","Salaamati dene wala"],["الْمُؤْمِن","Al-Mu'min","Amaan dene wala"],["الْمُهَيْمِن","Al-Muhaymin","Nigehbaan"],["الْعَزِيز","Al-Aziz","Zabardast"],["الْجَبَّار","Al-Jabbar","Quwwat wala"],["الْمُتَكَبِّر","Al-Mutakabbir","Sabse Bada"],["الْخَالِق","Al-Khaliq","Banane wala"],["الْبَارِئ","Al-Bari'","Naye andaaz se banane wala"],["الْمُصَوِّر","Al-Musawwir","Surat dene wala"],["الْغَفَّار","Al-Ghaffar","Baar baar maaf karne wala"],["الْقَهَّار","Al-Qahhar","Sab par Ghalib"],["الْوَهَّاب","Al-Wahhab","Dene wala"],["الرَّزَّاق","Ar-Razzaq","Rizq dene wala"],["الْفَتَّاح","Al-Fattah","Darwaze kholne wala"],["الْعَلِيم","Al-Alim","Sab jaanne wala"],["الْقَابِض","Al-Qabid","Rokne wala"],["الْبَاسِط","Al-Basit","Failane wala"],["الْخَافِض","Al-Khafid","Neecha karne wala"],["الرَّافِع","Ar-Rafi'","Unchha karne wala"],["الْمُعِزّ","Al-Mu'izz","Izzat dene wala"],["الْمُذِلّ","Al-Mudhill","Zaleel karne wala"],["السَّمِيع","As-Sami'","Sab sunne wala"],["الْبَصِير","Al-Basir","Sab dekhne wala"],["الْحَكَم","Al-Hakam","Faisla karne wala"],["الْعَدْل","Al-Adl","Insaaf wala"],["اللَّطِيف","Al-Latif","Meharbaan"],["الْخَبِير","Al-Khabir","Khabar rakhne wala"],["الْحَلِيم","Al-Halim","Burdbaar"],["الْعَظِيم","Al-Azim","Azmat wala"],["الْغَفُور","Al-Ghafur","Bakhshne wala"],["الشَّكُور","Ash-Shakur","Qadr karne wala"],["الْعَلِيّ","Al-Aliyy","Sabse Ucha"],["الْكَبِير","Al-Kabir","Bahut Bada"],["الْحَفِيظ","Al-Hafiz","Hifaazat wala"],["الْمُقِيت","Al-Muqit","Rozi dene wala"],["الْحَسِيب","Al-Hasib","Hisaab karne wala"],["الْجَلِيل","Al-Jalil","Azmat wala"],["الْكَرِيم","Al-Karim","Bada Sakhi"],["الرَّقِيب","Ar-Raqib","Dekhta rehta hai"],["الْمُجِيب","Al-Mujib","Dua qubool karne wala"],["الْوَاسِع","Al-Wasi'","Bahut Wasi"],["الْحَكِيم","Al-Hakim","Hikmat wala"],["الْوَدُود","Al-Wadud","Mohabbat karne wala"],["الْمَجِيد","Al-Majid","Buzurgi wala"],["الْبَاعِث","Al-Ba'ith","Uthane wala"],["الشَّهِيد","Ash-Shahid","Haazir o Naazir"],["الْحَقّ","Al-Haqq","Sachcha"],["الْوَكِيل","Al-Wakil","Zimmedaar"],["الْقَوِيّ","Al-Qawiyy","Taqatwar"],["الْمَتِين","Al-Matin","Mazboot"],["الْوَلِيّ","Al-Waliyy","Dost"],["الْحَمِيد","Al-Hamid","Sab Tarif Usi ki"],["الْمُحْصِي","Al-Muhsi","Sab ginta hai"],["الْمُبْدِئ","Al-Mubdi'","Pehli baar banane wala"],["الْمُعِيد","Al-Mu'id","Dobara banane wala"],["الْمُحْيِي","Al-Muhyi","Zindagi dene wala"],["الْمُمِيت","Al-Mumit","Maut dene wala"],["الْحَيّ","Al-Hayy","Hamesha Zinda"],["الْقَيُّوم","Al-Qayyum","Sab ko qaim rakhne wala"],["الْوَاجِد","Al-Wajid","Sab milta hai use"],["الْمَاجِد","Al-Majid","Shareef"],["الْوَاحِد","Al-Wahid","Ek"],["الْأَحَد","Al-Ahad","Akela — koi sharik nahi"],["الصَّمَد","As-Samad","Sab ka Sahara"],["الْقَادِر","Al-Qadir","Qadir"],["الْمُقْتَدِر","Al-Muqtadir","Poori tarah Qadir"],["الْمُقَدِّم","Al-Muqaddim","Aage karne wala"],["الْمُؤَخِّر","Al-Mu'akhkhir","Peechhe karne wala"],["الْأَوَّل","Al-Awwal","Sabse Pehla"],["الْآخِر","Al-Akhir","Sabse Aakhir"],["الظَّاهِر","Az-Zahir","Zahir"],["الْبَاطِن","Al-Batin","Chupta"],["الْوَالِي","Al-Wali","Malik"],["الْمُتَعَالِي","Al-Muta'ali","Sabse Ucha"],["الْبَرّ","Al-Barr","Neki wala"],["التَّوَّاب","At-Tawwab","Taubah qubool wala"],["الْمُنْتَقِم","Al-Muntaqim","Badla lene wala"],["الْعَفُوّ","Al-Afuww","Maaf karne wala"],["الرَّؤُوف","Ar-Ra'uf","Shafiq"],["مَالِكُ الْمُلْك","Malik-ul-Mulk","Sab ka Malik"],["ذُو الْجَلَالِ وَالْإِكْرَام","Dhul-Jalali","Azmat wala"],["الْمُقْسِط","Al-Muqsit","Insaaf wala"],["الْجَامِع","Al-Jami'","Jama karne wala"],["الْغَنِيّ","Al-Ghani","Bekhauf"],["الْمُغْنِي","Al-Mughni","Ghani karne wala"],["الْمَانِع","Al-Mani'","Rokne wala"],["الضَّارّ","Ad-Darr","Nuksan wala"],["النَّافِع","An-Nafi'","Faida wala"],["النُّور","An-Nur","Noor"],["الْهَادِي","Al-Hadi","Hidaayat wala"],["الْبَدِيع","Al-Badi'","Anokha Creator"],["الْبَاقِي","Al-Baqi","Hamesha rehne wala"],["الْوَارِث","Al-Warith","Sab Usi ka"],["الرَّشِيد","Ar-Rashid","Raasta dikhane wala"],["الصَّبُور","As-Sabur","Sabar wala"]];
+const al=document.getElementById('asmaList');
+asma.forEach(([ar,en,hi],i)=>{
+  const d=document.createElement('div');
+  d.style.cssText='margin-bottom:3px;padding-bottom:2px;border-bottom:1px dashed #a9dfbf;';
+  d.innerHTML=`<div style="font-family:'Scheherazade New',serif;font-size:13px;color:#148f77;direction:rtl;line-height:1.2;text-align:right;">${ar}</div><div style="font-size:7.5px;color:#27ae60;font-weight:800;">${i+1}. ${en}</div><div style="font-size:7px;color:#7f8c8d;">${hi}</div>`;
+  al.appendChild(d);
+});
+</script>
+
+</body>
+</html>
